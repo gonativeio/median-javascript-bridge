@@ -1,6 +1,18 @@
 import { CallbackParams } from '../types';
 import { addCommand, addCommandCallback } from '../utils';
 
+type PermissionType =
+  | 'Notifications'
+  | 'Camera'
+  | 'Contacts'
+  | 'Microphone'
+  | 'LocationWhenInUse'
+  | 'LocationAlways'
+  | 'AppTrackingTransparency'
+  | 'PhotoLibrary';
+
+type PermissionStatus = 'undetermined' | 'granted' | 'denied';
+
 const permissions = {
   requestPhoneCallMgmt: function (params: CallbackParams) {
     if (params?.callback) {
@@ -8,8 +20,8 @@ const permissions = {
     }
     addCommand('median://permissions/requestPhoneCallMgmt', params);
   },
-  status: function (permissions: string[]) {
-    return addCommandCallback<Record<string, string>>('median://permissions/status', { permissions });
+  status: function (permissions?: PermissionType[]) {
+    return addCommandCallback<Record<string, PermissionStatus>>('median://permissions/status', { permissions });
   },
 };
 

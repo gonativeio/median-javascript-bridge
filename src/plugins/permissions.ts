@@ -8,6 +8,9 @@ const permissions = {
     }
     addCommand('median://permissions/requestPhoneCallMgmt', params);
   },
+  status: function (permissions: string[]) {
+    return addCommandCallback<Record<string, string>>('median://permissions/status', { permissions });
+  },
 };
 
 export default permissions;

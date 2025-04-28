@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gonativeio/median-javacript-bridge.git"
+    "url": "git+https://github.com/gonativeio/median-javascript-bridge.git"
   },
   "keywords": [
     "median",

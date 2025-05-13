@@ -25,6 +25,15 @@ type FirebaseAnalyticsPurchaseItemParams = {
   quantity: number;
 };
 
+export enum FirebaseAnalyticsConsentKey {
+  ANALYTICS_STORAGE = 'analyticsStorage',
+  AD_STORAGE = 'adStorage',
+  AD_USER_DATA = 'adUserData',
+  AD_PERSONALIZATION = 'adPersonalization',
+}
+
+type FirebaseAnalyticsSetConsentParams = Record<FirebaseAnalyticsConsentKey, boolean>;
+
 const firebaseAnalytics = {
   event: {
     collection: function (enabled: boolean) {
@@ -57,6 +66,9 @@ const firebaseAnalytics = {
     removeFromCart: function (params: FirebaseAnalyticsPurchaseItemParams) {
       addCommand('median://firebaseAnalytics/event/removeFromCart', params);
     },
+  },
+  setConsent: function (params: FirebaseAnalyticsSetConsentParams) {
+    addCommand('median://firebaseAnalytics/setConsent', params);
   },
 };
 

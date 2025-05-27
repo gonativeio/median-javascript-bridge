@@ -22,6 +22,7 @@ export { default as facebook } from './facebook';
 export { default as firebaseAnalytics } from './firebaseAnalytics';
 export { default as firebaseCrashlytics } from './firebaseCrashlytics';
 export { default as haptics } from './haptics';
+export { default as healthBridge } from './healthBridge';
 export { default as iap } from './iap';
 export { default as intercom } from './intercom';
 export { default as iterable } from './iterable';

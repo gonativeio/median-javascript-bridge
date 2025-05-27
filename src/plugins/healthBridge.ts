@@ -13,16 +13,15 @@ type HealthBridgeDataType =
   | 'waterIntake'
   | 'sleep';
 
+type HealthBridgeGetDataItem = {
+  value: number;
+  timestamp?: string;
+  start?: string;
+  end?: string;
+};
+
 type HealthBridgeGetData = {
-  data: Record<
-    HealthBridgeDataType,
-    {
-      value: number;
-      timestamp?: string;
-      start?: string;
-      end?: string;
-    }
-  >;
+  data: Record<HealthBridgeDataType, HealthBridgeGetDataItem[]>;
 };
 
 type HealthBridgeGetDataParams = CallbackParams<HealthBridgeGetData> & {

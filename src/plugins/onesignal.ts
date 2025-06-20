@@ -76,10 +76,10 @@ const onesignal = {
       return addCommandCallback<OneSignalGetTagsData>('median://onesignal/tags/get', params);
     },
     setTags: function (params: CallbackParams<CallbackData> & { tags: Record<string, string> }) {
-      addCommand('median://onesignal/tags/set', params);
+      return addCommandCallback('median://onesignal/tags/set', params);
     },
     deleteTags: function (params: CallbackParams<CallbackData> & { tags?: string[] }) {
-      addCommand('median://onesignal/tags/delete', params);
+      return addCommandCallback('median://onesignal/tags/delete', params);
     },
   },
   showTagsUI: function () {

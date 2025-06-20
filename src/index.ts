@@ -101,6 +101,7 @@ class Median {
   firebaseAnalytics = plugins.firebaseAnalytics;
   firebaseCrashlytics = plugins.firebaseCrashlytics;
   haptics = plugins.haptics;
+  healthBridge = plugins.healthBridge;
   iap = plugins.iap;
   intercom = plugins.intercom;
   iterable = plugins.iterable;

@@ -2,16 +2,9 @@ name: NPM Publish
 
 on:
   workflow_dispatch:
-    inputs:
-      release-type:
-        description: 'Release type (major, minor, patch)'
-        required: true
-        default: 'patch'
-        type: choice
-        options:
-          - patch
-          - minor
-          - major
+  push:
+    branches:
+      - main
 
 jobs:
   build-and-publish:
@@ -34,20 +27,21 @@ jobs:
       - name: Build
         run: npm run build
       
-      - name: Bump version and push tag
+      - name: Check if version is published
+        id: check-version
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          npm version ${{ github.event.inputs.release-type }}
-      
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          tags: true
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          echo "Current version: $PACKAGE_VERSION"
+          if npm view . versions --json | grep -q "\"$PACKAGE_VERSION\""; then
+            echo "Version $PACKAGE_VERSION already published, skipping"
+            echo "is_published=true" >> $GITHUB_OUTPUT
+          else
+            echo "Version $PACKAGE_VERSION not published yet"
+            echo "is_published=false" >> $GITHUB_OUTPUT
+          fi
       
       - name: Publish to NPM
+        if: steps.check-version.outputs.is_published == 'false'
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

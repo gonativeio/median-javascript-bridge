@@ -16,6 +16,9 @@ const facebook = {
       addCommand('median://facebook/events/sendPurchase', params);
     },
   },
+  setAutoLogging: function (enabled: boolean) {
+    addCommand('median://facebook/setAutoLogging', { enabled });
+  },
 };
 
 export default facebook;

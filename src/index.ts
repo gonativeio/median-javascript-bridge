@@ -55,6 +55,7 @@ class Median {
   // General
   ios = ios;
   android = android;
+  camera = general.camera;
   clipboard = general.clipboard;
   config = general.config;
   connectivity = general.connectivity;

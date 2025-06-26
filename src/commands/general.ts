@@ -1,6 +1,15 @@
 import { AnyData, CallbackParams } from '../types';
 import { addCommand, addCommandCallback } from '../utils';
 
+const camera = {
+  setCaptureQuality: function (quality: 'high' | 'low') {
+    addCommand('median://camera/setCaptureQuality', { quality });
+  },
+  saveToGallery: function (saveToGallery: boolean) {
+    addCommand('median://camera/saveToGallery', { saveToGallery });
+  },
+};
+
 type ClipboardData = { data: string };
 
 const clipboard = {
@@ -321,6 +330,7 @@ const window = {
 };
 
 export {
+  camera,
   clipboard,
   config,
   connectivity,

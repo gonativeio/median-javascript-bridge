@@ -45,6 +45,10 @@ type OneSignalInAppMessageData = {
   closesMessage: string;
 };
 
+type OneSignalRegisterData = {
+  isSubscribed: boolean;
+};
+
 const onesignal = {
   /**
    * @deprecated Use Median.onesignal.info() instead
@@ -60,8 +64,8 @@ const onesignal = {
   info: function (params: CallbackParams<OneSignalInfo>) {
     return addCommandCallback<OneSignalInfo>('median://onesignal/info', params, true);
   },
-  register: function () {
-    addCommand('median://onesignal/register');
+  register: function (params: CallbackParams<OneSignalRegisterData>) {
+    return addCommandCallback<OneSignalRegisterData>('median://onesignal/register', params, true);
   },
   userPrivacyConsent: {
     grant: function () {

@@ -101,6 +101,7 @@ class Median {
   facebook = plugins.facebook;
   firebaseAnalytics = plugins.firebaseAnalytics;
   firebaseCrashlytics = plugins.firebaseCrashlytics;
+  grow = plugins.grow;
   haptics = plugins.haptics;
   healthBridge = plugins.healthBridge;
   iap = plugins.iap;

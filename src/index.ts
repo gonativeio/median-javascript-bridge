@@ -110,6 +110,7 @@ class Median {
   iterable = plugins.iterable;
   kaltura = plugins.kaltura;
   keychainSwift = plugins.keychainSwift;
+  klaviyo = plugins.klaviyo;
   localpreferences = plugins.localpreferences;
   modal = plugins.modal;
   moengage = plugins.moengage;

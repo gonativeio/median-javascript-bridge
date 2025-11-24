@@ -30,6 +30,7 @@ export { default as intercom } from './intercom';
 export { default as iterable } from './iterable';
 export { default as kaltura } from './kaltura';
 export { default as keychainSwift } from './keychainSwift';
+export { default as klaviyo } from './klaviyo';
 export { default as localpreferences } from './localSettings';
 export { default as modal } from './modal';
 export { default as moengage } from './moengage';

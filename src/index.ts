@@ -104,6 +104,7 @@ class Median {
   haptics = plugins.haptics;
   healthBridge = plugins.healthBridge;
   iap = plugins.iap;
+  intentedge = plugins.intentedge;
   intercom = plugins.intercom;
   iterable = plugins.iterable;
   kaltura = plugins.kaltura;

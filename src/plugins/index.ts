@@ -24,6 +24,7 @@ export { default as firebaseCrashlytics } from './firebaseCrashlytics';
 export { default as haptics } from './haptics';
 export { default as healthBridge } from './healthBridge';
 export { default as iap } from './iap';
+export { default as intentedge } from './intentedge';
 export { default as intercom } from './intercom';
 export { default as iterable } from './iterable';
 export { default as kaltura } from './kaltura';

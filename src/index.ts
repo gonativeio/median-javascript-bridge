@@ -80,6 +80,7 @@ class Median {
   // Plugins
   adjust = plugins.adjust;
   admob = plugins.admob;
+  ageSafety = plugins.ageSafety;
   appreview = plugins.appreview;
   appsflyer = plugins.appsflyer;
   auth = plugins.auth;

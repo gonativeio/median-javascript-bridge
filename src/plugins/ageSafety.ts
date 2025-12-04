@@ -1,3 +1,4 @@
+import { AnyData } from '../types';
 import { addCallbackFunction, addCommand } from '../utils';
 
 type AgeSignalsOptions = {
@@ -43,25 +44,27 @@ type AgeSignalsOnError = (error: PluginError) => void;
 type RequireMinimumAgeOnSuccess = (data: { allowed: boolean }) => void;
 
 const ageSafety = {
-  getAgeSignals: function (
-    options: AgeSignalsOptions,
-    onSuccess?: AgeSignalsOnSuccess,
-    onError?: AgeSignalsOnError
-  ) {
-    const successCallback = addCallbackFunction(onSuccess || "");
-    const errorCallback = addCallbackFunction(onError || "");
-    addCommand('median://ageSafety/getAgeSignals', { ...options, successCallback, errorCallback });
+  getAgeSignals: function (options: AgeSignalsOptions, onSuccess?: AgeSignalsOnSuccess, onError?: AgeSignalsOnError) {
+    const params: Record<string, AnyData> = { ...options };
+    if (onSuccess) {
+      params.successCallback = addCallbackFunction(onSuccess);
+    }
+    if (onError) {
+      params.errorCallback = addCallbackFunction(onError);
+    }
+    addCommand('median://ageSafety/getAgeSignals', params);
   },
 
-  requireMinimumAge: function (
-    age: number,
-    onSuccess?: RequireMinimumAgeOnSuccess,
-    onError?: AgeSignalsOnError
-  ) {
-    const successCallback = addCallbackFunction(onSuccess || "");
-    const errorCallback = addCallbackFunction(onError || "");
-    addCommand('median://ageSafety/requireMinimumAge', { age, successCallback, errorCallback });
-  }
+  requireMinimumAge: function (age: number, onSuccess?: RequireMinimumAgeOnSuccess, onError?: AgeSignalsOnError) {
+    const params: Record<string, AnyData> = { age };
+    if (onSuccess) {
+      params.successCallback = addCallbackFunction(onSuccess);
+    }
+    if (onError) {
+      params.errorCallback = addCallbackFunction(onError);
+    }
+    addCommand('median://ageSafety/requireMinimumAge', params);
+  },
 };
 
 export default ageSafety;

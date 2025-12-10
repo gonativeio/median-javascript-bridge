@@ -1,5 +1,6 @@
 export { default as adjust } from './adjust';
 export { default as admob } from './admob';
+export { default as ageSafety } from './ageSafety';
 export { default as appreview } from './appreview';
 export { default as appsflyer } from './appsflyer';
 export { default as auth } from './auth';

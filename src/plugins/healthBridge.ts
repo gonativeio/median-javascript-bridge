@@ -1,44 +1,25 @@
-import { CallbackData, CallbackParams } from '../types';
+import { HealthBridge } from '../types/healthBridge';
 import { addCommandCallback } from '../utils';
 
-type HealthBridgeDataType =
-  | 'steps'
-  | 'distance'
-  | 'activeEnergy'
-  | 'exerciseTime'
-  | 'height'
-  | 'weight'
-  | 'bmi'
-  | 'calorieIntake'
-  | 'waterIntake'
-  | 'sleep';
-
-type HealthBridgeGetDataItem = {
-  value: number;
-  timestamp?: string;
-  start?: string;
-  end?: string;
-};
-
-type HealthBridgeGetData = {
-  data: Record<HealthBridgeDataType, HealthBridgeGetDataItem[]>;
-};
-
-type HealthBridgeGetDataParams = CallbackParams<HealthBridgeGetData> & {
-  dataTypes: HealthBridgeDataType[];
-  startDate: string;
-  endDate: string;
-  bucket?: 'raw' | 'minute' | 'hour' | 'day';
-};
-
-const healthBridge = {
-  requestPermissions: function (dataTypes: HealthBridgeDataType[]) {
-    return addCommandCallback<CallbackData>('median://healthBridge/requestPermissions', {
+/**
+ * HealthBridge plugin for Median.
+ * Provides access to health and fitness data with permission handling.
+ */
+export const healthBridge = {
+  /**
+   * Request user permission for specific health data types.
+   */
+  requestPermissions: function (dataTypes: HealthBridge.DataType[]) {
+    return addCommandCallback<HealthBridge.RequestPermissionsResponse>('median://healthBridge/requestPermissions', {
       dataTypes,
     });
   },
-  getData: function (params: HealthBridgeGetDataParams) {
-    return addCommandCallback<HealthBridgeGetData>('median://healthBridge/getData', params);
+
+  /**
+   * Retrieve health data for the specified data types and time range.
+   */
+  getData: function (params: HealthBridge.GetDataParams) {
+    return addCommandCallback<HealthBridge.GetDataResponse>('median://healthBridge/getData', params);
   },
 };
 

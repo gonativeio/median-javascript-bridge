@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 export type AnyData = any;
 
 export type CallbackParams<T = void> = void | {

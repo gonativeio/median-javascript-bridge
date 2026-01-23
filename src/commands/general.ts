@@ -329,7 +329,7 @@ const window = {
   },
 };
 
-export {
+const general = {
   camera,
   clipboard,
   config,
@@ -353,3 +353,5 @@ export {
   webview,
   window,
 };
+
+export default general;

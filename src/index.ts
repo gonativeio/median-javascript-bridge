@@ -181,7 +181,7 @@ export namespace Median {
   ///////////////////////////////
   //           Types           //
   ///////////////////////////////
-  export namespace Plugins {
+  export namespace Types {
     export import HealthBridge = HealthBridgeType;
   }
 }

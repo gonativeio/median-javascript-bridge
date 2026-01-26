@@ -7,7 +7,7 @@ import { createTempFunctionName, setMedianCallback, setSubscription } from './ut
 
 import { HealthBridge as HealthBridgeType } from './types/healthBridge';
 
-export namespace Median {
+namespace Median {
   ///////////////////////////////
   //          Internal         //
   ///////////////////////////////
@@ -177,13 +177,13 @@ export namespace Median {
   export const iapPurchases = createListenerProp<any>('_median_iap_purchases');
   export const oneSignalPushOpened = createListenerProp<any>('_median_onesignal_push_opened');
   export const shareToApp = createListenerProp<ShareToAppData>('_median_share_to_app');
-
-  ///////////////////////////////
-  //           Types           //
-  ///////////////////////////////
-  export namespace Types {
-    export import HealthBridge = HealthBridgeType;
-  }
 }
 
 export default Median;
+
+///////////////////////////////
+//           Types           //
+///////////////////////////////
+export declare namespace Types {
+  export import HealthBridge = HealthBridgeType;
+}

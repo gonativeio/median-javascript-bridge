@@ -8,7 +8,8 @@ export default {
   output: {
     format: 'iife',
     name: 'Median',
-    file: 'dist/median.min.js'
+    file: 'dist/median.min.js',
+    exports: 'default'
   },
   plugins: [nodeResolve(), terser()],
 };

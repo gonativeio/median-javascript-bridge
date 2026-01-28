@@ -1,4 +1,4 @@
-import { addCommand, addCommandCallback } from '../utils';
+import { addCommand, addCommandCallback } from '../utils.js';
 
 type LocalPreferencesSaveData = { data?: string; status: string };
 

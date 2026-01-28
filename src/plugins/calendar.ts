@@ -1,4 +1,4 @@
-import { addCommand } from '../utils';
+import { addCommand } from '../utils.js';
 
 const calendar = {
   download: function (params: { url: string }) {

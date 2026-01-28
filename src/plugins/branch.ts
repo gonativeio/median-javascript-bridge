@@ -1,5 +1,5 @@
-import { CallbackData, CallbackParams } from '../types';
-import { addCommandCallback } from '../utils';
+import { CallbackData, CallbackParams } from '../types/index.js';
+import { addCommandCallback } from '../utils.js';
 
 type BranchParamsItem = number | number[] | string | string[];
 

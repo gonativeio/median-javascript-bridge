@@ -1,11 +1,11 @@
-import * as commands from './commands';
-import * as plugins from './plugins';
-import { BranchInitializedData } from './plugins/branch';
-import { InAppPurchaseInfoReadyData } from './plugins/iap';
-import { ShareToAppData } from './plugins/share';
-import { createTempFunctionName, setMedianCallback, setSubscription } from './utils';
+import * as commands from './commands/index.js';
+import * as plugins from './plugins/index.js';
+import { BranchInitializedData } from './plugins/branch.js';
+import { InAppPurchaseInfoReadyData } from './plugins/iap.js';
+import { ShareToAppData } from './plugins/share.js';
+import { createTempFunctionName, setMedianCallback, setSubscription } from './utils.js';
 
-import { HealthBridge as HealthBridgeType } from './types/healthBridge';
+import { HealthBridge as HealthBridgeType } from './types/healthBridge.js';
 
 namespace Median {
   ///////////////////////////////

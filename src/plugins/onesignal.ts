@@ -1,5 +1,5 @@
-import { CallbackData, CallbackParams } from '../types';
-import { addCallbackFunction, addCommand, addCommandCallback } from '../utils';
+import { CallbackData, CallbackParams } from '../types/index.js';
+import { addCallbackFunction, addCommand, addCommandCallback } from '../utils.js';
 
 type OneSignalSubscription = {
   id: string;

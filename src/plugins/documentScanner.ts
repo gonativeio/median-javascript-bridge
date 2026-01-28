@@ -1,5 +1,5 @@
-import { CallbackParams } from '../types';
-import { addCommand, addCommandCallback } from '../utils';
+import { CallbackParams } from '../types/index.js';
+import { addCommand, addCommandCallback } from '../utils.js';
 
 type DocumentScannerScanData = {
   image: string;

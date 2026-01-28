@@ -1,5 +1,5 @@
-import { AnyData, CallbackData, CallbackParams, PermissionStatusData } from '../types';
-import { addCommand, addCommandCallback } from '../utils';
+import { AnyData, CallbackData, CallbackParams, PermissionStatusData } from '../types/index.js';
+import { addCommand, addCommandCallback } from '../utils.js';
 
 const braze = {
   changeUser: function (params: CallbackParams<CallbackData> & { userId: string }) {

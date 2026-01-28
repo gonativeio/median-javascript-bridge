@@ -1,5 +1,5 @@
-import { CallbackData } from '../types';
-import { addCommandCallback } from '../utils';
+import { CallbackData } from '../types/index.js';
+import { addCommandCallback } from '../utils.js';
 
 type OpenTokJoinParams = {
   apiKey: string;

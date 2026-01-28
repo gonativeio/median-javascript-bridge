@@ -1,5 +1,5 @@
-import { AnyData, CallbackParams } from '../types';
-import { addCommand, addCommandCallback } from '../utils';
+import { AnyData, CallbackParams } from '../types/index.js';
+import { addCommand, addCommandCallback } from '../utils.js';
 
 type InAppPurchaseParams = Record<string, AnyData> & {
   productID: string | null;

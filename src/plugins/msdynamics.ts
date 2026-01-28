@@ -1,6 +1,6 @@
 import { DeviceInfo } from '../commands/general';
-import { CallbackData, CallbackParams, PermissionStatusData } from '../types';
-import { addCommandCallback } from '../utils';
+import { CallbackData, CallbackParams, PermissionStatusData } from '../types/index.js';
+import { addCommandCallback } from '../utils.js';
 
 const msdynamics = {
   areNotificationsEnabled: function (params: CallbackParams<PermissionStatusData>) {

@@ -1,4 +1,4 @@
-import { addCommand, addCommandCallback } from '../utils';
+import { addCommand, addCommandCallback } from '../utils.js';
 
 interface HtmlCanvasOptions {
   useCORS: boolean;

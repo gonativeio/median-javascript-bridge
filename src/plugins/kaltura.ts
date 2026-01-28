@@ -1,5 +1,5 @@
-import { CallbackData } from '../types';
-import { addCommand } from '../utils';
+import { CallbackData } from '../types/index.js';
+import { addCommand } from '../utils.js';
 
 type KalturaPlayParams = {
   entryId: string;

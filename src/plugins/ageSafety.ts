@@ -1,5 +1,5 @@
-import { AnyData } from '../types';
-import { addCallbackFunction, addCommand } from '../utils';
+import { AnyData } from '../types/index.js';
+import { addCallbackFunction, addCommand } from '../utils.js';
 
 type AgeSignalsOptions = {
   /**

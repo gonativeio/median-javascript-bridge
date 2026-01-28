@@ -1,5 +1,5 @@
-import { CallbackParams } from '../types';
-import { addCommandCallback } from '../utils';
+import { CallbackParams } from '../types/index.js';
+import { addCommandCallback } from '../utils.js';
 
 type PlaidLinkBankData = {
   success: boolean;

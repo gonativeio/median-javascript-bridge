@@ -1,5 +1,5 @@
-import { AnyData } from '../types';
-import { addCommand, addCommandCallback } from '../utils';
+import { AnyData } from '../types/index.js';
+import { addCommand, addCommandCallback } from '../utils.js';
 
 type IntentEdgeNumberSegmentResult = {
   success: boolean;

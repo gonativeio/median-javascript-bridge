@@ -1,4 +1,4 @@
-import { addCommand } from '../utils';
+import { addCommand } from '../utils.js';
 
 const android = {
   geoLocation: {

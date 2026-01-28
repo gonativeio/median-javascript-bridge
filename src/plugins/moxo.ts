@@ -1,5 +1,5 @@
-import { CallbackData, CallbackParams, PermissionStatusData } from '../types';
-import { addCommand, addCommandCallback } from '../utils';
+import { CallbackData, CallbackParams, PermissionStatusData } from '../types/index.js';
+import { addCommand, addCommandCallback } from '../utils.js';
 
 type MoxoRegisterPushData = { granted?: string; success?: boolean; error?: string };
 

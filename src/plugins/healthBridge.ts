@@ -1,5 +1,5 @@
 import { HealthBridge } from '../types/healthBridge';
-import { addCommandCallback } from '../utils';
+import { addCommandCallback } from '../utils.js';
 
 /**
  * HealthBridge plugin for Median.

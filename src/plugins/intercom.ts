@@ -1,5 +1,5 @@
-import { AnyData, CallbackParams, PermissionStatusData } from '../types';
-import { addCommand, addCommandCallback } from '../utils';
+import { AnyData, CallbackParams, PermissionStatusData } from '../types/index.js';
+import { addCommand, addCommandCallback } from '../utils.js';
 
 type IntercomUpdateUserParams = {
   userId?: string;

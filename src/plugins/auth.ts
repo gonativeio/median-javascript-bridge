@@ -1,5 +1,5 @@
-import { CallbackParams, CallbackData } from '../types';
-import { addCommandCallback } from '../utils';
+import { CallbackParams, CallbackData } from '../types/index.js';
+import { addCommandCallback } from '../utils.js';
 
 export type AuthStatusData = {
   biometryType: string;

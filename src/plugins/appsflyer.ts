@@ -1,5 +1,5 @@
-import { AnyData } from '../types';
-import { addCommand } from '../utils';
+import { AnyData } from '../types/index.js';
+import { addCommand } from '../utils.js';
 
 const appsflyer = {
   logEvent: function (eventName: string, eventValues: AnyData) {

@@ -1,6 +1,6 @@
-import { AnyData, CallbackParams } from '../types';
-import { addCommandCallback } from '../utils';
-import { AuthStatusData } from './auth';
+import { AnyData, CallbackParams } from '../types/index.js';
+import { addCommandCallback } from '../utils.js';
+import { AuthStatusData } from './auth.js';
 
 type Auth0LoginData = {
   idToken: string;

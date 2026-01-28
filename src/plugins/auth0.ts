@@ -11,7 +11,9 @@ type Auth0LoginData = {
 };
 
 type Auth0LoginParams = CallbackParams<Auth0LoginData> & {
+  audience?: string;
   enableBiometrics?: boolean;
+  scope?: string;
 };
 
 type Auth0ProfileParams = {

@@ -169,7 +169,9 @@ namespace Median {
   ///////////////////////////////
   //           Events          //
   ///////////////////////////////
-  export const appsFlyerConversionData = createListenerProp<any>('_median_appsflyer_cd_success');
+  export const appsFlyerConversionData = createListenerProp<any>('_median_appsflyer_cd');
+  export const appsFlyerDeeplinkResult = createListenerProp<any>('_median_appsflyer_deeplink_result');
+  export const appsFlyerSdkStart = createListenerProp<any>('_median_appsflyer_sdk_start');
   export const appResumed = createListenerProp('_median_app_resumed');
   export const branchInitialized = createListenerProp<BranchInitializedData>('_median_branch_initialized');
   export const deviceShake = createListenerProp('_median_device_shake');

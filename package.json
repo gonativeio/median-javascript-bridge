@@ -1,6 +1,6 @@
 {
   "name": "median-js-bridge",
-  "version": "2.13.4",
+  "version": "2.13.5",
   "description": "Median bridge and utilities for JS web frameworks",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

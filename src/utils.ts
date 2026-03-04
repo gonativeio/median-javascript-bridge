@@ -1,4 +1,4 @@
-import { AnyData } from './types';
+import { AnyData } from './types/index.js';
 
 interface JSBridgeType {
   postMessage?: (data: string) => void;

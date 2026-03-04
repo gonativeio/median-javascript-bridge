@@ -1,4 +1,4 @@
-import { MasterLock } from '../types/masterlock';
+import { MasterLock } from '../types/masterlock.js';
 import { addCallbackFunction, addCommand, addCommandCallback } from '../utils.js';
 
 const masterlock = {

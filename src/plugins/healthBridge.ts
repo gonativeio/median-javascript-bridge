@@ -1,4 +1,4 @@
-import { HealthBridge } from '../types/healthBridge';
+import { HealthBridge } from '../types/healthBridge.js';
 import { addCommandCallback } from '../utils.js';
 
 /**

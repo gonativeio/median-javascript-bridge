@@ -5,8 +5,6 @@ import { InAppPurchaseInfoReadyData } from './plugins/iap.js';
 import { ShareToAppData } from './plugins/share.js';
 import { createTempFunctionName, setMedianCallback, setSubscription } from './utils.js';
 
-import { HealthBridge as HealthBridgeType } from './types/healthBridge.js';
-
 namespace Median {
   ///////////////////////////////
   //          Internal         //
@@ -111,6 +109,7 @@ namespace Median {
   export const keychainSwift = plugins.keychainSwift;
   export const klaviyo = plugins.klaviyo;
   export const localpreferences = plugins.localpreferences;
+  export const masterlock = plugins.masterlock;
   export const modal = plugins.modal;
   export const moengage = plugins.moengage;
   export const moxo = plugins.moxo;
@@ -186,6 +185,5 @@ export default Median;
 ///////////////////////////////
 //           Types           //
 ///////////////////////////////
-export declare namespace Types {
-  export import HealthBridge = HealthBridgeType;
-}
+export { HealthBridge } from './types/healthBridge.js';
+export { MasterLock } from './types/masterlock.js';

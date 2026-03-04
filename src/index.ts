@@ -177,6 +177,9 @@ namespace Median {
   export const deviceShake = createListenerProp('_median_device_shake');
   export const iapInfoReady = createListenerProp<InAppPurchaseInfoReadyData>('_median_info_ready');
   export const iapPurchases = createListenerProp<any>('_median_iap_purchases');
+  export const jsNavigation = {
+    url: createListenerProp<{ url: string }>('_median_url_changed'),
+  };
   export const oneSignalPushOpened = createListenerProp<any>('_median_onesignal_push_opened');
   export const shareToApp = createListenerProp<ShareToAppData>('_median_share_to_app');
 }

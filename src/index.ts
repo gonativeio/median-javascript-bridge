@@ -5,9 +5,6 @@ import { InAppPurchaseInfoReadyData } from './plugins/iap.js';
 import { ShareToAppData } from './plugins/share.js';
 import { createTempFunctionName, setMedianCallback, setSubscription } from './utils.js';
 
-import { HealthBridge as HealthBridgeType } from './types/healthBridge.js';
-import { MasterLock as MasterLockType } from './types/masterlock.js';
-
 namespace Median {
   ///////////////////////////////
   //          Internal         //
@@ -188,7 +185,5 @@ export default Median;
 ///////////////////////////////
 //           Types           //
 ///////////////////////////////
-export declare namespace Types {
-  export import HealthBridge = HealthBridgeType;
-  export import MasterLock = MasterLockType;
-}
+export { HealthBridge } from './types/healthBridge.js';
+export { MasterLock } from './types/masterlock.js';

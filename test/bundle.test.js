@@ -42,6 +42,7 @@ const tests = [
   // Events
   { name: 'Median.appResumed exists', check: () => typeof Median.appResumed === 'object' },
   { name: 'Median.appResumed.addListener is function', check: () => typeof Median.appResumed?.addListener === 'function' },
+  { name: 'Median.jsNavigation exists', check: () => typeof Median.jsNavigation === 'object' },
 ];
 
 let passed = 0;

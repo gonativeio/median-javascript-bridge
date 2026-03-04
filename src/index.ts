@@ -112,6 +112,7 @@ namespace Median {
   export const keychainSwift = plugins.keychainSwift;
   export const klaviyo = plugins.klaviyo;
   export const localpreferences = plugins.localpreferences;
+  export const masterlock = plugins.masterlock;
   export const modal = plugins.modal;
   export const moengage = plugins.moengage;
   export const moxo = plugins.moxo;

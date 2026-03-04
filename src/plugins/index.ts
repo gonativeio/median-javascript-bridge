@@ -33,6 +33,7 @@ export { default as kaltura } from './kaltura.js';
 export { default as keychainSwift } from './keychainSwift.js';
 export { default as klaviyo } from './klaviyo.js';
 export { default as localpreferences } from './localSettings.js';
+export { default as masterlock } from './masterlock.js';
 export { default as modal } from './modal.js';
 export { default as moengage } from './moengage.js';
 export { default as moxo } from './moxo.js';

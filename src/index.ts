@@ -6,6 +6,7 @@ import { ShareToAppData } from './plugins/share.js';
 import { createTempFunctionName, setMedianCallback, setSubscription } from './utils.js';
 
 import { HealthBridge as HealthBridgeType } from './types/healthBridge.js';
+import { MasterLock as MasterLockType } from './types/masterlock.js';
 
 namespace Median {
   ///////////////////////////////
@@ -188,4 +189,5 @@ export default Median;
 ///////////////////////////////
 export declare namespace Types {
   export import HealthBridge = HealthBridgeType;
+  export import MasterLock = MasterLockType;
 }

@@ -1,5 +1,5 @@
 import { AnyData } from '../types/index.js';
-import { addCommand } from '../utils.js';
+import { addCommand } from '../utils/index.js';
 
 type FacebookSendEventParams = {
   event: string;

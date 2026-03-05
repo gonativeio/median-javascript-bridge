@@ -1,5 +1,6 @@
 import { CallbackData, CallbackParams } from '../types/index.js';
-import { addCallbackFunction, addCommand, addCommandCallback } from '../utils.js';
+import { addCallbackFunction, addCommand, addCommandCallback } from '../utils/index.js';
+import { createListener } from '../utils/listener.js';
 
 type OneSignalSubscription = {
   id: string;
@@ -140,6 +141,7 @@ const onesignal = {
   logout: function (params: CallbackParams<CallbackData>) {
     return addCommandCallback<CallbackData>('median://onesignal/logout', params);
   },
+  pushOpened: createListener<Record<string, any>>('_median_onesignal_push_opened'),
 };
 
 export default onesignal;

@@ -1,5 +1,5 @@
 import { CallbackData } from '../types/index.js';
-import { addCommand, addCommandCallback } from '../utils.js';
+import { addCommand, addCommandCallback } from '../utils/index.js';
 
 export class AdjustEvent {
   token: string;

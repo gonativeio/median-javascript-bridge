@@ -1,5 +1,5 @@
 import { CallbackData, CallbackParams, PermissionStatusData } from '../types/index.js';
-import { addCommandCallback } from '../utils.js';
+import { addCommandCallback } from '../utils/index.js';
 
 const cordial = {
   setContact: function (params: CallbackParams<CallbackData>) {

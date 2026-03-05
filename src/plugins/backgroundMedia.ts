@@ -1,5 +1,5 @@
 import { CallbackData, CallbackParams } from '../types/index.js';
-import { addCommand, addCommandCallback } from '../utils.js';
+import { addCommand, addCommandCallback } from '../utils/index.js';
 
 type BackgroundMediaTrack = {
   url?: string;

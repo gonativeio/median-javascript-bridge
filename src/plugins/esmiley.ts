@@ -1,5 +1,5 @@
 import { AnyData } from '../types/index.js';
-import { addCommand, addCommandCallback } from '../utils.js';
+import { addCommand, addCommandCallback } from '../utils/index.js';
 
 const esmiley = {
   scan: function (timeout: number) {

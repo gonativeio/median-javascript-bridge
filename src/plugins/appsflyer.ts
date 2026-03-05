@@ -1,4 +1,6 @@
-import { addCommand } from '../utils.js';
+import { AppsFlyer } from '../types/appsflyer.js';
+import { addCommand } from '../utils/index.js';
+import { createListener } from '../utils/listener.js';
 
 /**
  * Appsflyer plugin for Median.
@@ -24,6 +26,21 @@ const appsflyer = {
   setCustomerUserId: function (userId: string) {
     addCommand('median://appsflyer/setCustomerUserId', { userId });
   },
+
+  /**
+   * Listens for conversion data events from the AppsFlyer SDK.
+   */
+  conversionData: createListener<AppsFlyer.ConversionData>('_median_appsflyer_cd'),
+
+  /**
+   * Listens for deep link results from the AppsFlyer SDK.
+   */
+  deeplinkResult: createListener<AppsFlyer.DeeplinkResult>('_median_appsflyer_deeplink_result'),
+
+  /**
+   * Listens for AppsFlyer SDK start events.
+   */
+  sdkStart: createListener<AppsFlyer.SdkStartResponse>('_median_appsflyer_sdk_start'),
 };
 
 export default appsflyer;

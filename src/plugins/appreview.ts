@@ -1,5 +1,5 @@
 import { CallbackParams } from '../types/index.js';
-import { addCommand, addCommandCallback } from '../utils.js';
+import { addCommand, addCommandCallback } from '../utils/index.js';
 
 const appreview = {
   prompt: function (params?: CallbackParams) {

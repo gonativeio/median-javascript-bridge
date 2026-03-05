@@ -2,48 +2,11 @@ import * as commands from './commands/index.js';
 import * as plugins from './plugins/index.js';
 import { BranchInitializedData } from './plugins/branch.js';
 import { InAppPurchaseInfoReadyData } from './plugins/iap.js';
-import { ShareToAppData } from './plugins/share.js';
-import { createTempFunctionName, setMedianCallback, setSubscription } from './utils.js';
+import { ShareToAppData } from './plugins/shareIntoApp.js';
+import { createListener } from './utils/listener.js';
+import { AppsFlyer } from './types/appsflyer.js';
 
 namespace Median {
-  ///////////////////////////////
-  //          Internal         //
-  ///////////////////////////////
-  const listeners: Record<string, Record<string, (...args: any[]) => void>> = {};
-
-  const addListener = <T>(functionName: string, callback: (data: T) => void) => {
-    const functionId = createTempFunctionName(functionName);
-
-    if (typeof callback !== 'function') {
-      return functionId;
-    }
-
-    listeners[functionName] = listeners[functionName] || {};
-    listeners[functionName][functionId] = callback;
-
-    setMedianCallback(functionName, listeners[functionName]);
-    setSubscription(functionName, true);
-
-    return functionId;
-  };
-
-  const removeListener = (functionName: string, functionId: string) => {
-    if (!functionName || !functionId) return;
-
-    listeners[functionName] = listeners[functionName] || {};
-    delete listeners[functionName][functionId];
-
-    setMedianCallback(functionName, listeners[functionName]);
-    if (Object.keys(listeners[functionName]).length === 0) {
-      setSubscription(functionName, false);
-    }
-  };
-
-  const createListenerProp = <T = void>(functionName: string) => ({
-    addListener: (callback: (data: T) => void) => addListener<T>(functionName, callback),
-    removeListener: (functionId: string) => removeListener(functionName, functionId),
-  });
-
   ///////////////////////////////
   //      General Commands     //
   ///////////////////////////////
@@ -55,6 +18,7 @@ namespace Median {
   export const connectivity = commands.general.connectivity;
   export const deviceInfo = commands.general.deviceInfo;
   export const internalExternal = commands.general.internalExternal;
+  export const jsNavigation = commands.general.jsNavigation;
   export const keyboard = commands.general.keyboard;
   export const nativebridge = commands.general.nativebridge;
   export const navigationLevels = commands.general.navigationLevels;
@@ -119,8 +83,8 @@ namespace Median {
   export const opentok = plugins.opentok;
   export const permissions = plugins.permissions;
   export const plaid = plugins.plaid;
-  export const purchase = plugins.iap.purchase;
   export const revenueCat = plugins.revenueCat;
+  export const shareIntoApp = plugins.shareIntoApp;
   export const socialLogin = plugins.socialLogin;
   export const socialShare = plugins.socialShare;
   export const storage = {
@@ -168,19 +132,41 @@ namespace Median {
   ///////////////////////////////
   //           Events          //
   ///////////////////////////////
-  export const appsFlyerConversionData = createListenerProp<any>('_median_appsflyer_cd');
-  export const appsFlyerDeeplinkResult = createListenerProp<any>('_median_appsflyer_deeplink_result');
-  export const appsFlyerSdkStart = createListenerProp<any>('_median_appsflyer_sdk_start');
-  export const appResumed = createListenerProp('_median_app_resumed');
-  export const branchInitialized = createListenerProp<BranchInitializedData>('_median_branch_initialized');
-  export const deviceShake = createListenerProp('_median_device_shake');
-  export const iapInfoReady = createListenerProp<InAppPurchaseInfoReadyData>('_median_info_ready');
-  export const iapPurchases = createListenerProp<any>('_median_iap_purchases');
-  export const jsNavigation = {
-    url: createListenerProp<{ url: string }>('_median_url_changed'),
-  };
-  export const oneSignalPushOpened = createListenerProp<any>('_median_onesignal_push_opened');
-  export const shareToApp = createListenerProp<ShareToAppData>('_median_share_to_app');
+  export const appResumed = createListener('_median_app_resumed');
+  export const deviceShake = createListener('_median_device_shake');
+
+  /**
+   * @deprecated Use `Median.appsflyer.conversionData` instead.
+   */
+  export const appsFlyerConversionData = createListener<AppsFlyer.ConversionData>('_median_appsflyer_cd');
+  /**
+   * @deprecated Use `Median.appsflyer.deeplinkResult` instead.
+   */
+  export const appsFlyerDeeplinkResult = createListener<AppsFlyer.DeeplinkResult>('_median_appsflyer_deeplink_result');
+  /**
+   * @deprecated Use `Median.appsflyer.sdkStart` instead.
+   */
+  export const appsFlyerSdkStart = createListener<AppsFlyer.SdkStartResponse>('_median_appsflyer_sdk_start');
+  /**
+   * @deprecated Use `Median.branch.initialized` instead.
+   */
+  export const branchInitialized = createListener<BranchInitializedData>('_median_branch_initialized');
+  /**
+   * @deprecated Use `Median.iap.infoReady` instead.
+   */
+  export const iapInfoReady = createListener<InAppPurchaseInfoReadyData>('_median_info_ready');
+  /**
+   * @deprecated Use `Median.iap.purchaseResult` instead.
+   */
+  export const iapPurchases = createListener<Record<string, any>>('_median_iap_purchases');
+  /**
+   * @deprecated Use `Median.oneSignal.pushOpened` instead.
+   */
+  export const oneSignalPushOpened = createListener<Record<string, any>>('_median_onesignal_push_opened');
+  /**
+   * @deprecated Use `Median.shareIntoApp.shareResult` instead.
+   */
+  export const shareToApp = createListener<ShareToAppData>('_median_share_to_app');
 }
 
 export default Median;
@@ -188,5 +174,6 @@ export default Median;
 ///////////////////////////////
 //           Types           //
 ///////////////////////////////
+export { AppsFlyer } from './types/appsflyer.js';
 export { HealthBridge } from './types/healthBridge.js';
 export { MasterLock } from './types/masterlock.js';

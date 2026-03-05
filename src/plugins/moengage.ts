@@ -1,5 +1,5 @@
 import { AnyData, CallbackData, CallbackParams, PermissionStatusData } from '../types/index.js';
-import { addCommandCallback } from '../utils.js';
+import { addCommandCallback } from '../utils/index.js';
 
 const moengage = {
   notificationEnabled: function (params: CallbackParams<PermissionStatusData>) {

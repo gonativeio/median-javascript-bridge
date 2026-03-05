@@ -1,4 +1,4 @@
-import { addCommandCallback } from '../utils.js';
+import { addCommandCallback } from '../utils/index.js';
 
 /**
  * The result of a generic operation or command.

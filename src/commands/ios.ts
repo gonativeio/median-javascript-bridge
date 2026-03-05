@@ -1,5 +1,5 @@
 import { CallbackParams, PermissionStatusData } from '../types/index.js';
-import { addCommand, addCommandCallback } from '../utils.js';
+import { addCommand, addCommandCallback } from '../utils/index.js';
 import { NewWindowMode } from './general.js';
 
 const ios = {

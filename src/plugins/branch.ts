@@ -1,5 +1,6 @@
 import { CallbackData, CallbackParams } from '../types/index.js';
-import { addCommandCallback } from '../utils.js';
+import { addCommandCallback } from '../utils/index.js';
+import { createListener } from '../utils/listener.js';
 
 type BranchParamsItem = number | number[] | string | string[];
 
@@ -21,6 +22,7 @@ const branch = {
   isInitialized: function (params: CallbackParams<BranchIsInitializedData>) {
     return addCommandCallback<BranchIsInitializedData>('median://branch/isInitialized', params);
   },
+  initialized: createListener<BranchInitializedData>('_median_branch_initialized'),
 };
 
 export default branch;

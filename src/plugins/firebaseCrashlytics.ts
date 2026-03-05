@@ -1,4 +1,4 @@
-import { addCommand } from '../utils.js';
+import { addCommand } from '../utils/index.js';
 
 const firebaseCrashlytics = {
   enable: function (enable: boolean) {

@@ -1,5 +1,5 @@
 import { CallbackData, CallbackParams, PermissionStatusData } from '../types/index.js';
-import { addCommandCallback } from '../utils.js';
+import { addCommandCallback } from '../utils/index.js';
 
 type IterableInitializeParams = CallbackParams<CallbackData> & {
   apiKey: string;

@@ -1,5 +1,5 @@
 import { MasterLock } from '../types/masterlock.js';
-import { addCallbackFunction, addCommand, addCommandCallback } from '../utils.js';
+import { addCallbackFunction, addCommand, addCommandCallback } from '../utils/index.js';
 
 const masterlock = {
   initialize: function (params: MasterLock.InitializeParams) {

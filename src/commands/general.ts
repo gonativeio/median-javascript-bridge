@@ -1,5 +1,6 @@
 import { AnyData, CallbackParams } from '../types/index.js';
-import { addCommand, addCommandCallback } from '../utils.js';
+import { addCommand, addCommandCallback } from '../utils/index.js';
+import { createListener } from '../utils/listener.js';
 
 const camera = {
   setCaptureQuality: function (quality: 'high' | 'low') {
@@ -87,6 +88,10 @@ const internalExternal = {
   set: function (params: InternalExternalParams) {
     addCommand('median://internalExternal/set', params);
   },
+};
+
+const jsNavigation = {
+  url: createListener<{ url: string }>('_median_url_changed'),
 };
 
 export type KeyboardInfo = {
@@ -337,6 +342,7 @@ const general = {
   contextMenu,
   deviceInfo,
   internalExternal,
+  jsNavigation,
   keyboard,
   nativebridge,
   navigationLevels,

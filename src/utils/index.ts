@@ -1,4 +1,4 @@
-import { AnyData } from './types/index.js';
+import { AnyData } from '../types/index.js';
 
 interface JSBridgeType {
   postMessage?: (data: string) => void;
@@ -91,25 +91,5 @@ export function addCommandCallback<T = AnyData>(
       };
       addCommand(command, params);
     });
-  }
-}
-
-// Misc
-export function setMedianCallback(command: string, callbackFunctions: Record<string, (...args: AnyData) => void>) {
-  (window[command as AnyData] as AnyData) = function (...args: AnyData) {
-    Object.keys(callbackFunctions).forEach((key) => {
-      const callbackFunction = callbackFunctions[key];
-      if (typeof callbackFunction === 'function') {
-        callbackFunction(...args);
-      }
-    });
-  };
-}
-
-export function setSubscription(eventName: string, subscribe: boolean) {
-  if (subscribe) {
-    return addCommand('median://events/subscribe', { eventName });
-  } else {
-    return addCommand('median://events/unsubscribe', { eventName });
   }
 }

@@ -1,5 +1,5 @@
 import { CallbackData, CallbackParams } from '../types/index.js';
-import { addCommandCallback } from '../utils.js';
+import { addCommandCallback } from '../utils/index.js';
 
 type ContactItem = {
   birthday?: string;

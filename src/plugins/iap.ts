@@ -1,5 +1,6 @@
 import { AnyData, CallbackParams } from '../types/index.js';
-import { addCommand, addCommandCallback } from '../utils.js';
+import { addCommand, addCommandCallback } from '../utils/index.js';
+import { createListener } from '../utils/listener.js';
 
 type InAppPurchaseParams = Record<string, AnyData> & {
   productID: string | null;
@@ -76,6 +77,8 @@ const iap = {
   refresh: function () {
     addCommand('median://iap/refresh');
   },
+  infoReady: createListener<InAppPurchaseInfoReadyData>('_median_info_ready'),
+  purchaseResult: createListener('_median_iap_purchases'),
 };
 
 export default iap;

@@ -44,6 +44,7 @@ export { default as opentok } from './opentok.js';
 export { default as permissions } from './permissions.js';
 export { default as plaid } from './plaid.js';
 export { default as revenueCat } from './revenueCat.js';
+export { default as shareIntoApp } from './shareIntoApp.js';
 export { default as socialLogin } from './socialLogin.js';
 export { default as socialShare } from './socialShare.js';
 export { default as twilio } from './twilio.js';

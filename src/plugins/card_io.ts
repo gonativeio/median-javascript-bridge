@@ -1,4 +1,4 @@
-import { addCommandCallback } from '../utils.js';
+import { addCommandCallback } from '../utils/index.js';
 
 type CardIoScanData = {
   cardNumber: string;

@@ -1,5 +1,5 @@
 import { AnyData, CallbackParams } from '../types/index.js';
-import { addCommandCallback } from '../utils.js';
+import { addCommandCallback } from '../utils/index.js';
 import { AuthStatusData } from './auth.js';
 
 type Auth0LoginData = {

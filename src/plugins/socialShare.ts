@@ -1,5 +1,5 @@
 import { AnyData, CallbackParams } from '../types/index.js';
-import { addCommand, addCommandCallback } from '../utils.js';
+import { addCommand, addCommandCallback } from '../utils/index.js';
 
 export interface SocialShareSnapchatShareParams {
   captionText?: string;

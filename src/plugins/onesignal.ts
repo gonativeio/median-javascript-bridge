@@ -141,7 +141,7 @@ const onesignal = {
   logout: function (params: CallbackParams<CallbackData>) {
     return addCommandCallback<CallbackData>('median://onesignal/logout', params);
   },
-  pushOpened: createListener('_median_onesignal_push_opened'),
+  pushOpened: createListener<Record<string, any>>('_median_onesignal_push_opened'),
 };
 
 export default onesignal;

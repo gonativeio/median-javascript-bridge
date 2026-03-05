@@ -78,7 +78,7 @@ const iap = {
     addCommand('median://iap/refresh');
   },
   infoReady: createListener<InAppPurchaseInfoReadyData>('_median_info_ready'),
-  purchaseResult: createListener('_median_iap_purchases'),
+  purchaseResult: createListener<Record<string, any>>('_median_iap_purchases'),
 };
 
 export default iap;

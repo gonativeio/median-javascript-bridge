@@ -4,6 +4,7 @@ import { BranchInitializedData } from './plugins/branch.js';
 import { InAppPurchaseInfoReadyData } from './plugins/iap.js';
 import { ShareToAppData } from './plugins/shareIntoApp.js';
 import { createListener } from './utils/listener.js';
+import { AppsFlyer } from './types/appsflyer.js';
 
 namespace Median {
   ///////////////////////////////
@@ -137,15 +138,15 @@ namespace Median {
   /**
    * @deprecated Use `Median.appsflyer.conversionData` instead.
    */
-  export const appsFlyerConversionData = createListener('_median_appsflyer_cd');
+  export const appsFlyerConversionData = createListener<AppsFlyer.ConversionData>('_median_appsflyer_cd');
   /**
    * @deprecated Use `Median.appsflyer.deeplinkResult` instead.
    */
-  export const appsFlyerDeeplinkResult = createListener('_median_appsflyer_deeplink_result');
+  export const appsFlyerDeeplinkResult = createListener<AppsFlyer.DeeplinkResult>('_median_appsflyer_deeplink_result');
   /**
    * @deprecated Use `Median.appsflyer.sdkStart` instead.
    */
-  export const appsFlyerSdkStart = createListener('_median_appsflyer_sdk_start');
+  export const appsFlyerSdkStart = createListener<AppsFlyer.SdkStartResponse>('_median_appsflyer_sdk_start');
   /**
    * @deprecated Use `Median.branch.initialized` instead.
    */
@@ -157,11 +158,11 @@ namespace Median {
   /**
    * @deprecated Use `Median.iap.purchaseResult` instead.
    */
-  export const iapPurchases = createListener('_median_iap_purchases');
+  export const iapPurchases = createListener<Record<string, any>>('_median_iap_purchases');
   /**
    * @deprecated Use `Median.oneSignal.pushOpened` instead.
    */
-  export const oneSignalPushOpened = createListener('_median_onesignal_push_opened');
+  export const oneSignalPushOpened = createListener<Record<string, any>>('_median_onesignal_push_opened');
   /**
    * @deprecated Use `Median.shareIntoApp.shareResult` instead.
    */
@@ -173,5 +174,6 @@ export default Median;
 ///////////////////////////////
 //           Types           //
 ///////////////////////////////
+export { AppsFlyer } from './types/appsflyer.js';
 export { HealthBridge } from './types/healthBridge.js';
 export { MasterLock } from './types/masterlock.js';

@@ -1,3 +1,4 @@
+import { AppsFlyer } from '../types/appsflyer.js';
 import { addCommand } from '../utils/index.js';
 import { createListener } from '../utils/listener.js';
 
@@ -29,17 +30,17 @@ const appsflyer = {
   /**
    * Listens for conversion data events from the AppsFlyer SDK.
    */
-  conversionData: createListener('_median_appsflyer_cd'),
+  conversionData: createListener<AppsFlyer.ConversionData>('_median_appsflyer_cd'),
 
   /**
    * Listens for deep link results from the AppsFlyer SDK.
    */
-  deeplinkResult: createListener('_median_appsflyer_deeplink_result'),
+  deeplinkResult: createListener<AppsFlyer.DeeplinkResult>('_median_appsflyer_deeplink_result'),
 
   /**
    * Listens for AppsFlyer SDK start events.
    */
-  sdkStart: createListener('_median_appsflyer_sdk_start'),
+  sdkStart: createListener<AppsFlyer.SdkStartResponse>('_median_appsflyer_sdk_start'),
 };
 
 export default appsflyer;

@@ -18,7 +18,7 @@ export namespace MasterLock {
     accessProfile: string;
     deviceId: string;
     firmwareVersion: number | string;
-    mechanism: "primary" | "secondary";
+    mechanism: 'primary' | 'secondary';
     timeout?: number;
   };
 
@@ -45,7 +45,7 @@ export namespace MasterLock {
   export type FirmwareUpdateStatus = {
     deviceId: string;
     state: string;
-  }
+  };
 
   export type FirmwareUpdateAddListenerResponse = {
     listenerId: string;
@@ -71,7 +71,7 @@ export namespace MasterLock {
 
   export type GetDeadBoltHandednessResponse = {
     deviceId: string;
-    handedness: "left" | "right";
+    handedness: 'left' | 'right';
     success: boolean;
   };
 
@@ -79,13 +79,13 @@ export namespace MasterLock {
     accessProfile: string;
     deviceId: string;
     firmwareVersion: number | string;
-    handedness: "left" | "right";
+    handedness: 'left' | 'right';
     timeout?: number;
   };
 
   export type SetDeadBoltHandednessResponse = {
     deviceId: string;
-    handedness: "left" | "right";
+    handedness: 'left' | 'right';
     success: boolean;
   };
 

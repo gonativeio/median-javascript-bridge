@@ -1,5 +1,5 @@
 import { AppsFlyer } from '../types/appsflyer.js';
-import { addCommand } from '../utils/index.js';
+import { addCommandCallback } from '../utils/index.js';
 import { createListener } from '../utils/listener.js';
 
 /**
@@ -13,8 +13,8 @@ const appsflyer = {
    * @param eventName - The name of the event to be tracked.
    * @param eventValues - Key-value pairs containing event metadata.
    */
-  logEvent: function (eventName: string, eventValues: any) {
-    addCommand('median://appsflyer/logEvent', { eventName, eventValues });
+  logEvent: function (eventName: string, eventValues?: Record<string, any>) {
+    return addCommandCallback<AppsFlyer.LogEventResponse>('median://appsflyer/logEvent', { eventName, eventValues });
   },
 
   /**
@@ -24,7 +24,7 @@ const appsflyer = {
    * @param userId - Unique identifier for the current user.
    */
   setCustomerUserId: function (userId: string) {
-    addCommand('median://appsflyer/setCustomerUserId', { userId });
+    return addCommandCallback<AppsFlyer.SetCustomerUserIdResponse>('median://appsflyer/setCustomerUserId', { userId });
   },
 
   /**

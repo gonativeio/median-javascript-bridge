@@ -82,7 +82,7 @@ export function addCommandCallback<T = AnyData>(
     params.callback = tempFunctionName;
     return new Promise(function (resolve, reject) {
       (window[tempFunctionName as AnyData] as AnyData) = function (data: T) {
-        if (data && typeof data === 'object' && 'error' in data && typeof data.error === 'string') {
+        if (data && typeof data === 'object' && 'error' in data) {
           reject(data);
         } else {
           resolve(data);

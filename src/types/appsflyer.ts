@@ -2,7 +2,7 @@ export namespace AppsFlyer {
   export type ConversionData = Record<string, any> & {
     af_message?: string;
     af_status?: string;
-    error?: string;
+    error?: { code?: string; description?: string };
     install_time?: string;
     is_first_launch?: boolean;
   };
@@ -18,13 +18,24 @@ export namespace AppsFlyer {
     clickEvent?: string;
     clickHTTPReferrer?: string;
     deeplinkValue?: string;
+    error?: { code?: string; description?: string };
     isDeferred: boolean;
     matchType?: string;
     mediaSource?: string;
   };
 
   export type SdkStartResponse = {
-    error?: string;
+    error?: { code?: string; description?: string };
+    success: boolean;
+  };
+
+  export type LogEventResponse = {
+    error?: { code?: string; description?: string };
+    success: boolean;
+  };
+
+  export type SetCustomerUserIdResponse = {
+    error?: { code?: string; description?: string };
     success: boolean;
   };
 }

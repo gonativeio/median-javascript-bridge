@@ -84,6 +84,7 @@ namespace Median {
   export const permissions = plugins.permissions;
   export const plaid = plugins.plaid;
   export const revenueCat = plugins.revenueCat;
+  export const salesforceCloud = plugins.salesforceCloud;
   export const shareIntoApp = plugins.shareIntoApp;
   export const socialLogin = plugins.socialLogin;
   export const socialShare = plugins.socialShare;
@@ -177,3 +178,4 @@ export default Median;
 export { AppsFlyer } from './types/appsflyer.js';
 export { HealthBridge } from './types/healthBridge.js';
 export { MasterLock } from './types/masterlock.js';
+export { SalesforceCloud } from './types/salesforceCloud.js';

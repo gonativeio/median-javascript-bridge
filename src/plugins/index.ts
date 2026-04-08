@@ -6,6 +6,7 @@ export { default as appsflyer } from './appsflyer.js';
 export { default as auth } from './auth.js';
 export { default as auth0 } from './auth0.js';
 export { default as autorefresh } from './autorefresh.js';
+export { default as backgroundAudio } from './backgroundAudio.js';
 export { default as backgroundLocation } from './backgroundLocation.js';
 export { default as backgroundMedia } from './backgroundMedia.js';
 export { default as barcode } from './barcode.js';

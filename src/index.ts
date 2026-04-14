@@ -46,6 +46,7 @@ namespace Median {
   export const auth = plugins.auth;
   export const auth0 = plugins.auth0;
   export const autorefresh = plugins.autorefresh;
+  export const backgroundAudio = plugins.backgroundAudio;
   export const backgroundLocation = plugins.backgroundLocation;
   export const backgroundMedia = plugins.backgroundMedia;
   export const barcode = plugins.barcode;
@@ -176,6 +177,7 @@ export default Median;
 //           Types           //
 ///////////////////////////////
 export { AppsFlyer } from './types/appsflyer.js';
+export { BackgroundAudio } from './types/backgroundAudio.js';
 export { HealthBridge } from './types/healthBridge.js';
 export { MasterLock } from './types/masterlock.js';
 export { SalesforceCloud } from './types/salesforceCloud.js';

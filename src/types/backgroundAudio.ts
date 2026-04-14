@@ -2,6 +2,7 @@ export namespace BackgroundAudio {
   export type PermissionResponse = {
     granted: boolean;
     status: 'granted' | 'denied' | 'not-determined' | 'restricted';
+    push?: 'granted' | 'denied' | 'ephemeral' | 'provisional' | 'not-determined';
   };
 
   export type RecordingState = 'idle' | 'recording' | 'paused' | 'stopped' | 'error';
@@ -17,6 +18,15 @@ export namespace BackgroundAudio {
     sttLanguage?: string;
     /** Callback when max duration is hit. */
     onRecordingStop?: (data: RecordingStopResponse) => void;
+
+    /** Title of the local notification shown during background recording (iOS only). */
+    notificationTitle?: string;
+
+    /** Subtitle of the local notification shown during background recording (iOS only). */
+    notificationSubtitle?: string;
+
+    /** Body message of the local notification shown during background recording (iOS only). */
+    notificationBody?: string;
   };
 
   export type RecordingStartResponse = {

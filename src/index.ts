@@ -54,6 +54,7 @@ namespace Median {
   export const branch = plugins.branch;
   export const calendar = plugins.calendar;
   export const card_io = plugins.card_io;
+  export const clerk = plugins.clerk;
   export const contacts = plugins.contacts;
   export const cordial = plugins.cordial;
   export const documentScanner = plugins.documentScanner;
@@ -69,6 +70,7 @@ namespace Median {
   export const intentedge = plugins.intentedge;
   export const intercom = plugins.intercom;
   export const iterable = plugins.iterable;
+  export const jwplayer = plugins.jwplayer;
   export const kaltura = plugins.kaltura;
   export const keychainSwift = plugins.keychainSwift;
   export const klaviyo = plugins.klaviyo;
@@ -176,6 +178,8 @@ export default Median;
 //           Types           //
 ///////////////////////////////
 export { AppsFlyer } from './types/appsflyer.js';
+export { Clerk } from './types/clerk.js';
 export { HealthBridge } from './types/healthBridge.js';
+export { JWPlayer } from './types/jwplayer.js';
 export { MasterLock } from './types/masterlock.js';
 export { SalesforceCloud } from './types/salesforceCloud.js';

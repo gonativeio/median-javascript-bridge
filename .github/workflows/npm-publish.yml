@@ -29,7 +29,10 @@ jobs:
       
       - name: Build
         run: npm run build
-      
+
+      - name: Update npm for provenance support
+        run: npm install -g npm@latest
+
       - name: Check if version is published
         id: check-version
         run: |

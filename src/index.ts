@@ -182,4 +182,5 @@ export { Clerk } from './types/clerk.js';
 export { HealthBridge } from './types/healthBridge.js';
 export { JWPlayer } from './types/jwplayer.js';
 export { MasterLock } from './types/masterlock.js';
+export { RevenueCat } from './types/revenueCat.js';
 export { SalesforceCloud } from './types/salesforceCloud.js';

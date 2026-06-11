@@ -57,6 +57,7 @@ namespace Median {
   export const clerk = plugins.clerk;
   export const contacts = plugins.contacts;
   export const cordial = plugins.cordial;
+  export const customerio = plugins.customerio;
   export const documentScanner = plugins.documentScanner;
   export const downloads = plugins.downloads;
   export const esmiley = plugins.esmiley;
@@ -179,6 +180,7 @@ export default Median;
 ///////////////////////////////
 export { AppsFlyer } from './types/appsflyer.js';
 export { Clerk } from './types/clerk.js';
+export { CustomerIo } from './types/customerio.js';
 export { HealthBridge } from './types/healthBridge.js';
 export { JWPlayer } from './types/jwplayer.js';
 export { MasterLock } from './types/masterlock.js';

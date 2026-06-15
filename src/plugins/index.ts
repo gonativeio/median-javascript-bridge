@@ -17,6 +17,7 @@ export { default as card_io } from './card_io.js';
 export { default as clerk } from './clerk.js';
 export { default as contacts } from './contacts.js';
 export { default as cordial } from './cordial.js';
+export { default as customerio } from './customerio.js';
 export { default as documentScanner } from './documentScanner.js';
 export { default as downloads } from './downloads.js';
 export { default as esmiley } from './esmiley.js';

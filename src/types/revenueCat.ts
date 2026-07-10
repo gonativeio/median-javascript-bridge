@@ -16,7 +16,7 @@ export namespace RevenueCat {
   export type IsInitializedResponse = {
     apiKey?: string;
     initialized: boolean;
-  }
+  };
 
   export type GetOfferingsResponse = {
     error?: {

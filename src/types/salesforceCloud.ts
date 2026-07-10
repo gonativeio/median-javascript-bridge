@@ -34,15 +34,15 @@ export namespace SalesforceCloud {
 
   export type SetTagsResponse = {
     success: boolean;
-  }
+  };
 
   export type GetAttributesResponse = {
     success: boolean;
-    attributes?: Record<string, any>
+    attributes?: Record<string, any>;
   };
 
   export type SetAttributesParams = {
-    attributes?: Record<string, any>
+    attributes?: Record<string, any>;
   };
 
   export type SetAttributesResponse = {

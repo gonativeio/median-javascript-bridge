@@ -19,6 +19,10 @@ export function createTempFunctionName(prefix = '_median_temp_') {
   return prefix + Math.random().toString(36).slice(2);
 }
 
+export function isAndroid() {
+  return !!window?.JSBridge?.postMessage;
+}
+
 // GoNativeJSBridgeLibrary.js
 export function addCallbackFunction(callbackFunction: string | ((data?: AnyData) => void), persistCallback?: boolean) {
   if (typeof callbackFunction === 'string') {

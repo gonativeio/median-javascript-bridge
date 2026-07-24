@@ -1,5 +1,5 @@
 import { AnyData, CallbackParams } from '../types/index.js';
-import { addCommandCallback } from '../utils/index.js';
+import { addCommandCallback, isAndroid } from '../utils/index.js';
 import { AuthStatusData } from './auth.js';
 
 type Auth0LoginData = {
@@ -34,8 +34,12 @@ const auth0 = {
   profile: function (params: Auth0ProfileParams) {
     return addCommandCallback<Auth0LoginData>('median://auth0/profile', params);
   },
+  get: function (params: CallbackParams<Auth0LoginData>) {
+    return auth0.getCredentials(params);
+  },
   getCredentials: function (params: CallbackParams<Auth0LoginData>) {
-    return addCommandCallback<Auth0LoginData>('median://auth0/getCredentials', params);
+    const command = isAndroid() ? 'median://auth0/get' : 'median://auth0/getCredentials';
+    return addCommandCallback<Auth0LoginData>(command, params);
   },
   renew: function (refreshToken?: string) {
     return addCommandCallback<Auth0LoginData>('median://auth0/renew', { refreshToken });

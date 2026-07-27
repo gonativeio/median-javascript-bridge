@@ -29,7 +29,7 @@ type BarcodeScanParams = CallbackParams<BarcodeScanData> & {
 };
 
 const barcode = {
-  scan: function (params: BarcodeScanParams) {
+  scan: function (params?: BarcodeScanParams) {
     return addCommandCallback<BarcodeScanData>('median://barcode/scan', params);
   },
   setPrompt: function (prompt: string) {

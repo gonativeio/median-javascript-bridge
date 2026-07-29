@@ -142,13 +142,11 @@ namespace Median {
   /**
    * @deprecated Use `Median.appsflyer.conversionData` instead.
    */
-  export const appsFlyerConversionData = createListener<AppsFlyer.ConversionDataResponse>('_median_appsflyer_cd');
+  export const appsFlyerConversionData = createListener<AppsFlyer.ConversionData>('_median_appsflyer_cd');
   /**
    * @deprecated Use `Median.appsflyer.deeplinkResult` instead.
    */
-  export const appsFlyerDeeplinkResult = createListener<AppsFlyer.DeepLinkResultResponse>(
-    '_median_appsflyer_deeplink_result'
-  );
+  export const appsFlyerDeeplinkResult = createListener<AppsFlyer.DeeplinkResult>('_median_appsflyer_deeplink_result');
   /**
    * @deprecated Use `Median.appsflyer.sdkStart` instead.
    */

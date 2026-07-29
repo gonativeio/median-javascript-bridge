@@ -21,22 +21,6 @@ function setSubscription(eventName: string, subscribe: boolean) {
   }
 }
 
-function resubscribeAll() {
-  Object.keys(listeners).forEach((functionName) => {
-    if (Object.keys(listeners[functionName]).length > 0) {
-      setSubscription(functionName, true);
-    }
-  });
-}
-
-if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
-  window.addEventListener('pageshow', (event) => {
-    if ((event as PageTransitionEvent).persisted) {
-      resubscribeAll();
-    }
-  });
-}
-
 const addListener = <T>(functionName: string, callback: (data: T) => void) => {
   const functionId = createTempFunctionName(functionName);
 

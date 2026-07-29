@@ -28,6 +28,22 @@ const appsflyer = {
   },
 
   /**
+   * Read the conversion data cached natively, without waiting for the SDK.
+   * Resolves with `data: null` when nothing has arrived yet.
+   */
+  getConversionData: function () {
+    return addCommandCallback<AppsFlyer.ConversionDataResponse>('median://appsflyer/getConversionData');
+  },
+
+  /**
+   * Read the deep link result cached natively, without waiting for the SDK.
+   * Resolves with `data: null` when nothing has arrived yet.
+   */
+  getDeepLinkResult: function () {
+    return addCommandCallback<AppsFlyer.DeepLinkResultResponse>('median://appsflyer/getDeepLinkResult');
+  },
+
+  /**
    * Listens for conversion data events from the AppsFlyer SDK.
    */
   conversionData: createListener<AppsFlyer.ConversionData>('_median_appsflyer_cd'),

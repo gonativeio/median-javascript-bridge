@@ -179,6 +179,7 @@ export default Median;
 //           Types           //
 ///////////////////////////////
 export { AppsFlyer } from './types/appsflyer.js';
+export { Adjust } from './types/adjust.js';
 export { Clerk } from './types/clerk.js';
 export { CustomerIo } from './types/customerio.js';
 export { HealthBridge } from './types/healthBridge.js';

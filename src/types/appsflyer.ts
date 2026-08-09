@@ -7,6 +7,19 @@ export namespace AppsFlyer {
     is_first_launch?: boolean;
   };
 
+  type ClickEvent = Record<string, any> & {
+    deep_link_sub1?: string;
+    deep_link_sub2?: string;
+    deep_link_sub3?: string;
+    deep_link_sub4?: string;
+    deep_link_sub5?: string;
+    deep_link_sub6?: string;
+    deep_link_sub7?: string;
+    deep_link_sub8?: string;
+    deep_link_sub9?: string;
+    deep_link_sub10?: string;
+  };
+
   export type DeeplinkResult = Record<string, any> & {
     afSub1?: string;
     afSub2?: string;
@@ -15,7 +28,7 @@ export namespace AppsFlyer {
     afSub5?: string;
     campaign?: string;
     campaignId?: string;
-    clickEvent?: Record<string, any>;
+    clickEvent?: ClickEvent;
     clickHTTPReferrer?: string;
     deeplinkValue?: string;
     error?: { code?: string; description?: string };

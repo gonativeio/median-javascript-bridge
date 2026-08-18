@@ -24,6 +24,7 @@ export { default as esmiley } from './esmiley.js';
 export { default as facebook } from './facebook.js';
 export { default as firebaseAnalytics } from './firebaseAnalytics.js';
 export { default as firebaseCrashlytics } from './firebaseCrashlytics.js';
+export { default as firebaseMessaging } from './firebaseMessaging.js';
 export { default as grow } from './grow.js';
 export { default as haptics } from './haptics.js';
 export { default as healthBridge } from './healthBridge.js';

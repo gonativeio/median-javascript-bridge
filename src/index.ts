@@ -64,6 +64,7 @@ namespace Median {
   export const facebook = plugins.facebook;
   export const firebaseAnalytics = plugins.firebaseAnalytics;
   export const firebaseCrashlytics = plugins.firebaseCrashlytics;
+  export const firebaseMessaging = plugins.firebaseMessaging;
   export const grow = plugins.grow;
   export const haptics = plugins.haptics;
   export const healthBridge = plugins.healthBridge;
@@ -181,6 +182,7 @@ export default Median;
 export { AppsFlyer } from './types/appsflyer.js';
 export { Clerk } from './types/clerk.js';
 export { CustomerIo } from './types/customerio.js';
+export { FirebaseMessaging } from './types/firebaseMessaging.js';
 export { HealthBridge } from './types/healthBridge.js';
 export { JWPlayer } from './types/jwplayer.js';
 export { MasterLock } from './types/masterlock.js';

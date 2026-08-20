@@ -38,9 +38,10 @@ const firebaseMessaging = {
   clearBadge: function () {
     return addCommandCallback<FirebaseMessaging.SetBadgeResult>('median://firebaseMessaging/clearBadge');
   },
-  setForegroundNotificationsEnabled: function () {
+  setForegroundNotificationsEnabled: function (enabled: boolean) {
     return addCommandCallback<FirebaseMessaging.SetForegroundNotificationsEnabledResult>(
-      'median://firebaseMessaging/setForegroundNotificationsEnabled'
+      'median://firebaseMessaging/setForegroundNotificationsEnabled',
+      { enabled }
     );
   },
   tokenRefreshed: {

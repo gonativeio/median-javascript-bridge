@@ -35,6 +35,14 @@ const firebaseMessaging = {
   setBadge: function (count: number) {
     return addCommandCallback<FirebaseMessaging.SetBadgeResult>('median://firebaseMessaging/setBadge', { count });
   },
+  clearBadge: function () {
+    return addCommandCallback<FirebaseMessaging.SetBadgeResult>('median://firebaseMessaging/clearBadge');
+  },
+  setForegroundNotificationsEnabled: function () {
+    return addCommandCallback<FirebaseMessaging.SetForegroundNotificationsEnabledResult>(
+      'median://firebaseMessaging/setForegroundNotificationsEnabled'
+    );
+  },
   tokenRefreshed: {
     addListener: function (callback: (data: FirebaseMessaging.GetTokenResult) => void) {
       return registerListener('median://firebaseMessaging/tokenRefreshed/addListener', callback);
@@ -64,11 +72,13 @@ const firebaseMessaging = {
     addCommand('median://firebaseMessaging/removeListener', { listenerId });
     return true;
   },
-  
+
   // Android only
   channels: {
     create: function (channel: FirebaseMessaging.NotificationChannel) {
-      return addCommandCallback<FirebaseMessaging.ChannelResult>('median://firebaseMessaging/channels/create', { channel });
+      return addCommandCallback<FirebaseMessaging.ChannelResult>('median://firebaseMessaging/channels/create', {
+        channel,
+      });
     },
     delete: function (id: string) {
       return addCommandCallback<FirebaseMessaging.ChannelResult>('median://firebaseMessaging/channels/delete', { id });

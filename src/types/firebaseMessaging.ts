@@ -34,6 +34,11 @@ export namespace FirebaseMessaging {
     error?: string;
   };
 
+  export type SetForegroundNotificationsEnabledResult = {
+    success: boolean;
+    error?: string;
+  };
+
   export type NotificationChannel = {
     id: string;
     name: string;

@@ -18,6 +18,7 @@ export namespace FirebaseMessaging {
     body?: string;
     data?: Record<string, string>;
     targetUrl?: string;
+    foreground?: boolean;
   };
 
   export type TopicResult = {

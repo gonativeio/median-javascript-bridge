@@ -21,6 +21,20 @@ function setSubscription(eventName: string, subscribe: boolean) {
   }
 }
 
+// A back-forward cache restore reuses the document without re-running scripts,
+// so the page never re-sends median://events/subscribe. Re-subscribe for it.
+if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
+  window.addEventListener('pageshow', (event) => {
+    if ((event as PageTransitionEvent).persisted) {
+      Object.keys(listeners).forEach((functionName) => {
+        if (Object.keys(listeners[functionName]).length > 0) {
+          setSubscription(functionName, true);
+        }
+      });
+    }
+  });
+}
+
 const addListener = <T>(functionName: string, callback: (data: T) => void) => {
   const functionId = createTempFunctionName(functionName);
 

@@ -1,4 +1,4 @@
-import { createListener } from '../utils/listener';
+import { createListener } from '../utils/listener.js';
 
 export type ShareToAppData = { url: string; subject: string };
 

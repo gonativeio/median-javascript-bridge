@@ -1,4 +1,4 @@
-import { DeviceInfo } from '../commands/general';
+import { DeviceInfo } from '../commands/general.js';
 import { CallbackData, CallbackParams, PermissionStatusData } from '../types/index.js';
 import { addCommandCallback } from '../utils/index.js';
 

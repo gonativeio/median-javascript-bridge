@@ -41,6 +41,7 @@ namespace Median {
   export const adjust = plugins.adjust;
   export const admob = plugins.admob;
   export const ageSafety = plugins.ageSafety;
+  export const applePay = plugins.applePay;
   export const appreview = plugins.appreview;
   export const appsflyer = plugins.appsflyer;
   export const auth = plugins.auth;
@@ -180,6 +181,7 @@ export default Median;
 //           Types           //
 ///////////////////////////////
 export { AppsFlyer } from './types/appsflyer.js';
+export { ApplePay } from './types/applePay.js';
 export { Clerk } from './types/clerk.js';
 export { CustomerIo } from './types/customerio.js';
 export { FirebaseMessaging } from './types/firebaseMessaging.js';

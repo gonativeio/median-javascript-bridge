@@ -38,6 +38,7 @@ const tests = [
   { name: 'Median.healthBridge exists', check: () => typeof Median.healthBridge === 'object' },
   { name: 'Median.auth exists', check: () => typeof Median.auth === 'object' },
   { name: 'Median.backgroundLocation exists', check: () => typeof Median.backgroundLocation === 'object' },
+  { name: 'Median.applePay exists', check: () => typeof Median.applePay === 'object' },
   
   // Events
   { name: 'Median.appResumed exists', check: () => typeof Median.appResumed === 'object' },

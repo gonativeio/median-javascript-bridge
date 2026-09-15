@@ -1,6 +1,7 @@
 export { default as adjust } from './adjust.js';
 export { default as admob } from './admob.js';
 export { default as ageSafety } from './ageSafety.js';
+export { default as applePay } from './applePay.js';
 export { default as appreview } from './appreview.js';
 export { default as appsflyer } from './appsflyer.js';
 export { default as auth } from './auth.js';

@@ -34,7 +34,7 @@ type BackgroundLocationParams = {
 };
 
 const backgroundLocation = {
-  start: function (params: BackgroundLocationParams) {
+  start: function (params: BackgroundLocation.Params) {
     addCommand('median://backgroundLocation/start', params, true);
   },
   stop: function () {

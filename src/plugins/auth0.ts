@@ -1,48 +1,31 @@
-import { AnyData, CallbackParams } from '../types/index.js';
+import { CallbackParams } from '../types/index.js';
+import { Auth0 } from '../types/auth0.js';
 import { addCommandCallback, isAndroid } from '../utils/index.js';
 import { AuthStatusData } from './auth.js';
 
-type Auth0LoginData = {
-  idToken: string;
-  accessToken: string;
-  refreshToken?: string;
-  scope?: string;
-  error?: string;
-};
-
-type Auth0LoginParams = CallbackParams<Auth0LoginData> & {
-  audience?: string;
-  enableBiometrics?: boolean;
-  scope?: string;
-};
-
-type Auth0ProfileParams = {
-  accessToken: string;
-  callback?: (data: AnyData) => void;
-};
-
 const auth0 = {
-  login: function (params: Auth0LoginParams) {
-    return addCommandCallback<Auth0LoginData>('median://auth0/login', params);
+  login: function (params: Auth0.LoginParams) {
+    return addCommandCallback<Auth0.LoginData>('median://auth0/login', params);
   },
-  logout: function (params: CallbackParams<{ error?: string }>) {
-    return addCommandCallback<{ error?: string }>('median://auth0/logout', params);
+  logout: function (params: CallbackParams<Auth0.LogoutData>) {
+    return addCommandCallback<Auth0.LogoutData>('median://auth0/logout', params);
   },
   status: function (params: CallbackParams<AuthStatusData>) {
     return addCommandCallback<AuthStatusData>('median://auth0/status', params);
   },
-  profile: function (params: Auth0ProfileParams) {
-    return addCommandCallback<Auth0LoginData>('median://auth0/profile', params);
+  profile: function (params: Auth0.ProfileParams) {
+    return addCommandCallback<Auth0.LoginData>('median://auth0/profile', params);
   },
-  get: function (params: CallbackParams<Auth0LoginData>) {
+  get: function (params: CallbackParams<Auth0.LoginData>) {
     return auth0.getCredentials(params);
   },
-  getCredentials: function (params: CallbackParams<Auth0LoginData>) {
+  getCredentials: function (params: CallbackParams<Auth0.LoginData>) {
     const command = isAndroid() ? 'median://auth0/get' : 'median://auth0/getCredentials';
-    return addCommandCallback<Auth0LoginData>(command, params);
+    return addCommandCallback<Auth0.LoginData>(command, params);
   },
   renew: function (refreshToken?: string) {
-    return addCommandCallback<Auth0LoginData>('median://auth0/renew', { refreshToken });
+    const params: Auth0.RenewParams = { refreshToken };
+    return addCommandCallback<Auth0.LoginData>('median://auth0/renew', params);
   },
 };
 

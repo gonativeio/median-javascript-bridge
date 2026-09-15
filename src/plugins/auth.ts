@@ -1,26 +1,12 @@
 import { CallbackParams, CallbackData } from '../types/index.js';
+import { Auth } from '../types/auth.js';
 import { addCommandCallback } from '../utils/index.js';
 
-export type AuthStatusData = {
-  biometryType: string;
-  hasTouchId: boolean;
-  hasSecret: boolean;
-  error: string;
-};
-
-export type AuthSaveParams = CallbackParams<CallbackData> & {
-  secret: string;
-};
-
-export type AuthGetData = CallbackData & {
-  secret?: string;
-};
-
-export type AuthGetParams = CallbackParams<AuthGetData> & {
-  prompt?: string;
-};
-
-export type AuthDeleteParams = CallbackParams<CallbackData>;
+export type AuthStatusData = Auth.StatusData;
+export type AuthSaveParams = Auth.SaveParams;
+export type AuthGetData = Auth.GetData;
+export type AuthGetParams = Auth.GetParams;
+export type AuthDeleteParams = Auth.DeleteParams;
 
 const auth = {
   status: function (params: CallbackParams<AuthStatusData>) {

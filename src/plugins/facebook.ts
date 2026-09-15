@@ -9,10 +9,10 @@ type FacebookSendEventParams = {
 
 const facebook = {
   events: {
-    send: function (params: FacebookSendEventParams) {
+    send: function (params: Facebook.SendEventParams) {
       addCommand('median://facebook/events/send', params);
     },
-    sendPurchase: function (params: Record<string, AnyData>) {
+    sendPurchase: function (params: Facebook.SendPurchaseParams) {
       addCommand('median://facebook/events/sendPurchase', params);
     },
   },

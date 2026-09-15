@@ -7,7 +7,7 @@ type AutoRefreshParams = {
 };
 
 const autorefresh = {
-  set: function (params: AutoRefreshParams) {
+  set: function (params: AutoRefresh.Params) {
     addCommand('median://autorefresh/set', params);
   },
 };

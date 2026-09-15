@@ -20,7 +20,7 @@ type BeaconScanParams = {
 };
 
 const beacon = {
-  scan: function (params: BeaconScanParams) {
+  scan: function (params: Beacon.ScanParams) {
     addCommand('median://beacon/scan', params);
   },
 };

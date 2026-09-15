@@ -22,8 +22,8 @@ type CardIoScanParams = {
 };
 
 const card_io = {
-  scanCard: function (params: CardIoScanParams) {
-    return addCommandCallback<CardIoScanData>('median://card.io/scanCard', params);
+  scanCard: function (params: CardIo.ScanParams) {
+    return addCommandCallback<CardIo.ScanData>('median://card.io/scanCard', params);
   },
 };
 

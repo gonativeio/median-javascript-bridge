@@ -16,9 +16,9 @@ type PermissionStatus = 'undetermined' | 'granted' | 'denied';
 const permissions = {
   requestPhoneCallMgmt: function (params: CallbackParams) {
     if (params?.callback) {
-      return addCommandCallback('median://permissions/requestPhoneCallMgmt', params);
+      return addCommandCallback('median://opentok/permissions/requestPhoneCallMgmt', params);
     }
-    addCommand('median://permissions/requestPhoneCallMgmt', params);
+    addCommand('median://opentok/permissions/requestPhoneCallMgmt', params);
   },
   status: function (permissions?: PermissionType[]) {
     return addCommandCallback<Record<string, PermissionStatus>>('median://permissions/status', { permissions });

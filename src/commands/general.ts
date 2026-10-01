@@ -233,15 +233,19 @@ const screen = {
   },
 };
 
+type ShareDownloadResult = { success: boolean; error?: string };
+
 const share = {
   sharePage: function (params: { url: string; text?: string }) {
     addCommand('median://share/sharePage', params);
   },
-  downloadFile: function (params: { url: string; filename?: string; open?: boolean }) {
-    addCommand('median://share/downloadFile', params);
+  downloadFile: function (
+    params: { url: string; filename?: string; open?: boolean } & CallbackParams<ShareDownloadResult>
+  ) {
+    return addCommandCallback<ShareDownloadResult>('median://share/downloadFile', params);
   },
-  downloadImage: function (params: { url: string }) {
-    addCommand('median://share/downloadImage', params);
+  downloadImage: function (params: { url: string } & CallbackParams<ShareDownloadResult>) {
+    return addCommandCallback<ShareDownloadResult>('median://share/downloadImage', params);
   },
 };
 

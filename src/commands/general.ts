@@ -143,6 +143,39 @@ type NavigationLevelsSetCurrentParams = {
   persist: boolean;
 };
 
+export type NavigationTitleImageParams = ({ url: string } | { image: string | Blob }) &
+  CallbackParams<NavigationResult>;
+
+export type NavigationResult = { success: boolean; error?: { code: string; message: string } };
+
+function blobToDataUrl(blob: Blob) {
+  return new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(blob);
+  });
+}
+
+const navigation = {
+  /**
+   * Shows an image in place of the top bar title for the current navigation instance, until
+   * resetTitleImage() or app restart. `url` is downloaded by the app; `image` is a Blob,
+   * a data URL or base64.
+   */
+  setTitleImage: async function (params: NavigationTitleImageParams) {
+    let data: AnyData = params;
+    if (params && 'image' in params && params.image instanceof Blob) {
+      data = { ...params, image: await blobToDataUrl(params.image) };
+    }
+    return addCommandCallback<NavigationResult>('median://navigation/setTitleImage', data);
+  },
+  /** Goes back to the configured title for the current navigation instance. */
+  resetTitleImage: function (params: CallbackParams<NavigationResult>) {
+    return addCommandCallback<NavigationResult>('median://navigation/resetTitleImage', params);
+  },
+};
+
 const navigationLevels = {
   set: function (data: NavigationLevelsSetParams) {
     addCommand('median://navigationLevels/set', {
@@ -345,6 +378,7 @@ const general = {
   jsNavigation,
   keyboard,
   nativebridge,
+  navigation,
   navigationLevels,
   navigationMaxWindows,
   navigationTitles,

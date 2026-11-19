@@ -43,6 +43,8 @@ const tests = [
   { name: 'Median.appResumed exists', check: () => typeof Median.appResumed === 'object' },
   { name: 'Median.appResumed.addListener is function', check: () => typeof Median.appResumed?.addListener === 'function' },
   { name: 'Median.jsNavigation exists', check: () => typeof Median.jsNavigation === 'object' },
+  { name: 'Median.navigation.setTitleImage is function', check: () => typeof Median.navigation?.setTitleImage === 'function' },
+  { name: 'Median.navigation.resetTitleImage is function', check: () => typeof Median.navigation?.resetTitleImage === 'function' },
 ];
 
 let passed = 0;

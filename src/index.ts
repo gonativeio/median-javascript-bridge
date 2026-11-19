@@ -21,6 +21,7 @@ namespace Median {
   export const jsNavigation = commands.general.jsNavigation;
   export const keyboard = commands.general.keyboard;
   export const nativebridge = commands.general.nativebridge;
+  export const navigation = commands.general.navigation;
   export const navigationLevels = commands.general.navigationLevels;
   export const navigationMaxWindows = commands.general.navigationMaxWindows;
   export const navigationTitles = commands.general.navigationTitles;

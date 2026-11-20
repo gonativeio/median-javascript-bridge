@@ -45,6 +45,21 @@ const tests = [
   { name: 'Median.jsNavigation exists', check: () => typeof Median.jsNavigation === 'object' },
   { name: 'Median.navigation.setTitleImage is function', check: () => typeof Median.navigation?.setTitleImage === 'function' },
   { name: 'Median.navigation.resetTitleImage is function', check: () => typeof Median.navigation?.resetTitleImage === 'function' },
+  { name: 'Median.navigation.setInstances is function', check: () => typeof Median.navigation?.setInstances === 'function' },
+  { name: 'Median.navigation.setInstance is function', check: () => typeof Median.navigation?.setInstance === 'function' },
+  { name: 'Median.navigation.resetInstances is function', check: () => typeof Median.navigation?.resetInstances === 'function' },
+  { name: 'Median.navigation.getInstance is function', check: () => typeof Median.navigation?.getInstance === 'function' },
+  { name: 'Median.navigation.getInstances is function', check: () => typeof Median.navigation?.getInstances === 'function' },
+  { name: 'Median.navigation.setTopItems is function', check: () => typeof Median.navigation?.setTopItems === 'function' },
+  { name: 'Median.navigation.getTopItems is function', check: () => typeof Median.navigation?.getTopItems === 'function' },
+  { name: 'Median.navigation.updateTopItem is function', check: () => typeof Median.navigation?.updateTopItem === 'function' },
+  { name: 'Median.navigation.resetTopItems is function', check: () => typeof Median.navigation?.resetTopItems === 'function' },
+  { name: 'Median.navigation.setTopNavBarColor is function', check: () => typeof Median.navigation?.setTopNavBarColor === 'function' },
+  { name: 'Median.navigation.resetTopNavBarColor is function', check: () => typeof Median.navigation?.resetTopNavBarColor === 'function' },
+  { name: 'Median.navigation.setBottomItems is function', check: () => typeof Median.navigation?.setBottomItems === 'function' },
+  { name: 'Median.navigation.getBottomItems is function', check: () => typeof Median.navigation?.getBottomItems === 'function' },
+  { name: 'Median.navigation.updateBottomItem is function', check: () => typeof Median.navigation?.updateBottomItem === 'function' },
+  { name: 'Median.navigation.resetBottomItems is function', check: () => typeof Median.navigation?.resetBottomItems === 'function' },
 ];
 
 let passed = 0;

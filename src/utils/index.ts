@@ -97,3 +97,27 @@ export function addCommandCallback<T = AnyData>(
     });
   }
 }
+
+const listenerIds = new Set();
+
+export function registerListener<T = any>(url: string, callback: (data?: T) => void) {
+  const listenerId = addCallbackFunction(callback, true);
+  listenerIds.add(listenerId);
+  addCommand(url, { listenerId });
+  return listenerId;
+}
+
+export function unregisterListener(url: string, listenerId: string) {
+  if (!listenerIds.delete(listenerId)) {
+    return false;
+  }
+
+  try {
+    delete window[listenerId as any];
+  } catch {
+    // NO OP
+  }
+
+  addCommand(url, { listenerId });
+  return true;
+}

@@ -50,6 +50,13 @@ type OneSignalRegisterData = {
   isSubscribed: boolean;
 };
 
+type JSONValue = string | number | boolean | null | JSONValue[] | { [key: string]: JSONValue };
+
+type OneSignalEventParams = {
+  name: string;
+  properties?: Record<string, JSONValue>;
+};
+
 const onesignal = {
   /**
    * @deprecated Use Median.onesignal.info() instead
@@ -142,6 +149,9 @@ const onesignal = {
     return addCommandCallback<CallbackData>('median://onesignal/logout', params);
   },
   pushOpened: createListener<Record<string, any>>('_median_onesignal_push_opened'),
+  trackEvent: function (params: OneSignalEventParams) {
+    return addCommandCallback<CallbackData>('median://onesignal/trackEvent', params);
+  },
 };
 
 export default onesignal;

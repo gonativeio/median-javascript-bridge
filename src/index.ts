@@ -71,6 +71,7 @@ namespace Median {
   export const iap = plugins.iap;
   export const intentedge = plugins.intentedge;
   export const intercom = plugins.intercom;
+  export const intune = plugins.intune;
   export const iterable = plugins.iterable;
   export const jwplayer = plugins.jwplayer;
   export const kaltura = plugins.kaltura;
@@ -184,6 +185,7 @@ export { Clerk } from './types/clerk.js';
 export { CustomerIo } from './types/customerio.js';
 export { FirebaseMessaging } from './types/firebaseMessaging.js';
 export { HealthBridge } from './types/healthBridge.js';
+export { Intune } from './types/intune.js';
 export { JWPlayer } from './types/jwplayer.js';
 export { MasterLock } from './types/masterlock.js';
 export { RevenueCat } from './types/revenueCat.js';

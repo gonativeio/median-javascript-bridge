@@ -31,6 +31,7 @@ export { default as healthBridge } from './healthBridge.js';
 export { default as iap } from './iap.js';
 export { default as intentedge } from './intentedge.js';
 export { default as intercom } from './intercom.js';
+export { default as intune } from './intune.js';
 export { default as iterable } from './iterable.js';
 export { default as jwplayer } from './jwplayer.js';
 export { default as kaltura } from './kaltura.js';

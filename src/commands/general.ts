@@ -148,6 +148,82 @@ export type NavigationTitleImageParams = ({ url: string } | { image: string | Bl
 
 export type NavigationResult = { success: boolean; error?: { code: string; message: string } };
 
+type NavigationCallbacks<T> = Exclude<CallbackParams<T>, void>;
+type NavigationParams<P, R> = P & NavigationCallbacks<R>;
+
+export type NavigationError = { code: string; message: string };
+export type NavigationFailure = { success: false; error: NavigationError };
+
+export type NavigationItem = {
+  label?: string;
+  url?: string;
+  icon?: string;
+  inactiveIcon?: string;
+  system?: string;
+};
+
+export type NavigationRenderedItem = NavigationItem & {
+  index: number;
+  badge: number | null;
+  selected?: boolean;
+};
+
+export type NavigationItemUpdate = {
+  item: number;
+  instanceId?: string;
+  label?: string;
+  icon?: string;
+  inactiveIcon?: string;
+  url?: string;
+  javascript?: string;
+  badge?: number | null;
+};
+
+export type NavigationBarComponent = { items?: NavigationItem[] } & Record<string, unknown>;
+
+export type NavigationInstance = {
+  id: string;
+  name?: string;
+  visibleIn: string | string[];
+  custom?: boolean;
+  components: {
+    topNavigationBar?: NavigationBarComponent;
+    sidebarNavigationBar?: Record<string, unknown>;
+    bottomTabBar?: NavigationBarComponent;
+    contextualNavToolbar?: Record<string, unknown>;
+  };
+};
+
+export type NavigationInstanceScope = { instanceId?: string };
+
+export type NavigationSetInstancesParams = NavigationParams<
+  { instances: NavigationInstance[] },
+  NavigationResult
+>;
+export type NavigationSetInstanceParams = NavigationParams<
+  { instance: NavigationInstance },
+  NavigationResult
+>;
+export type NavigationSetItemsParams = NavigationParams<
+  { items: NavigationItem[] } & NavigationInstanceScope,
+  NavigationResult
+>;
+export type NavigationUpdateItemParams = NavigationParams<NavigationItemUpdate, NavigationResult>;
+export type NavigationTopNavBarColorParams = NavigationParams<
+  { color: string; colorDark?: string; textColor?: string; textColorDark?: string } & NavigationInstanceScope,
+  NavigationResult
+>;
+
+export type NavigationGetInstanceResult =
+  | { success: true; instance: NavigationInstance }
+  | NavigationFailure;
+export type NavigationGetInstancesResult =
+  | { success: true; instances: NavigationInstance[] }
+  | NavigationFailure;
+export type NavigationGetItemsResult =
+  | { success: true; items: NavigationRenderedItem[] }
+  | NavigationFailure;
+
 function blobToDataUrl(blob: Blob) {
   return new Promise<string>((resolve, reject) => {
     const reader = new FileReader();
@@ -173,6 +249,66 @@ const navigation = {
   /** Goes back to the configured title for the current navigation instance. */
   resetTitleImage: function (params: CallbackParams<NavigationResult>) {
     return addCommandCallback<NavigationResult>('median://navigation/resetTitleImage', params);
+  },
+  /** Replaces the whole list of navigation instances for this session. */
+  setInstances: function (params: NavigationSetInstancesParams) {
+    return addCommandCallback<NavigationResult>('median://navigation/setInstances', params);
+  },
+  /** Adds or replaces one navigation instance for this session. */
+  setInstance: function (params: NavigationSetInstanceParams) {
+    return addCommandCallback<NavigationResult>('median://navigation/setInstance', params);
+  },
+  /** Restores the configured navigation instances. */
+  resetInstances: function (params?: CallbackParams<NavigationResult>) {
+    return addCommandCallback<NavigationResult>('median://navigation/resetInstances', params);
+  },
+  /** Returns the navigation instance for the current page as rendered. */
+  getInstance: function (params?: CallbackParams<NavigationGetInstanceResult>) {
+    return addCommandCallback<NavigationGetInstanceResult>('median://navigation/getInstance', params);
+  },
+  /** Returns all navigation instances as rendered. */
+  getInstances: function (params?: CallbackParams<NavigationGetInstancesResult>) {
+    return addCommandCallback<NavigationGetInstancesResult>('median://navigation/getInstances', params);
+  },
+  /** Replaces the top bar items of an instance. */
+  setTopItems: function (params: NavigationSetItemsParams) {
+    return addCommandCallback<NavigationResult>('median://navigation/setTopItems', params);
+  },
+  /** Returns the top bar items of an instance as rendered. */
+  getTopItems: function (params?: NavigationParams<NavigationInstanceScope, NavigationGetItemsResult>) {
+    return addCommandCallback<NavigationGetItemsResult>('median://navigation/getTopItems', params);
+  },
+  /** Updates one top bar item by index. */
+  updateTopItem: function (params: NavigationUpdateItemParams) {
+    return addCommandCallback<NavigationResult>('median://navigation/updateTopItem', params);
+  },
+  /** Removes runtime top bar items and item updates of an instance. */
+  resetTopItems: function (params?: NavigationParams<NavigationInstanceScope, NavigationResult>) {
+    return addCommandCallback<NavigationResult>('median://navigation/resetTopItems', params);
+  },
+  /** Sets the top bar background of an instance, and optionally its text and icon color, with dark mode variants. */
+  setTopNavBarColor: function (params: NavigationTopNavBarColorParams) {
+    return addCommandCallback<NavigationResult>('median://navigation/setTopNavBarColor', params);
+  },
+  /** Removes the runtime top bar color of an instance. */
+  resetTopNavBarColor: function (params?: NavigationParams<NavigationInstanceScope, NavigationResult>) {
+    return addCommandCallback<NavigationResult>('median://navigation/resetTopNavBarColor', params);
+  },
+  /** Replaces the bottom tab bar items of an instance. */
+  setBottomItems: function (params: NavigationSetItemsParams) {
+    return addCommandCallback<NavigationResult>('median://navigation/setBottomItems', params);
+  },
+  /** Returns the bottom tab bar items of an instance as rendered. */
+  getBottomItems: function (params?: NavigationParams<NavigationInstanceScope, NavigationGetItemsResult>) {
+    return addCommandCallback<NavigationGetItemsResult>('median://navigation/getBottomItems', params);
+  },
+  /** Updates one bottom tab bar item by index. */
+  updateBottomItem: function (params: NavigationUpdateItemParams) {
+    return addCommandCallback<NavigationResult>('median://navigation/updateBottomItem', params);
+  },
+  /** Removes runtime bottom tab bar items and item updates of an instance. */
+  resetBottomItems: function (params?: NavigationParams<NavigationInstanceScope, NavigationResult>) {
+    return addCommandCallback<NavigationResult>('median://navigation/resetBottomItems', params);
   },
 };
 

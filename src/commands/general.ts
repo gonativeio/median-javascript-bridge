@@ -210,7 +210,7 @@ export type NavigationSetItemsParams = NavigationParams<
 >;
 export type NavigationUpdateItemParams = NavigationParams<NavigationItemUpdate, NavigationResult>;
 export type NavigationTopNavBarColorParams = NavigationParams<
-  { color: string; colorDark?: string } & NavigationInstanceScope,
+  { color: string; colorDark?: string; textColor?: string; textColorDark?: string } & NavigationInstanceScope,
   NavigationResult
 >;
 
@@ -286,7 +286,7 @@ const navigation = {
   resetTopItems: function (params?: NavigationParams<NavigationInstanceScope, NavigationResult>) {
     return addCommandCallback<NavigationResult>('median://navigation/resetTopItems', params);
   },
-  /** Sets the top bar color of an instance, with an optional dark mode color. */
+  /** Sets the top bar background of an instance, and optionally its text and icon color, with dark mode variants. */
   setTopNavBarColor: function (params: NavigationTopNavBarColorParams) {
     return addCommandCallback<NavigationResult>('median://navigation/setTopNavBarColor', params);
   },

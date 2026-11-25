@@ -2,6 +2,7 @@ export namespace RevenueCat {
   export type ConfigureParams = {
     apiKey: string;
     appUserID?: string;
+    enableAdServicesAttribution?: boolean;
   };
 
   export type ConfigureResponse = {
@@ -17,6 +18,20 @@ export namespace RevenueCat {
     apiKey?: string;
     initialized: boolean;
   };
+
+  export type EnableAdServicesResponse = {
+    error?: {
+      code: string;
+      message: string;
+      underlyingErrorMessage?: string;
+    };
+    success: boolean;
+  };
+
+  export type GetAttributionStatusResponse = {
+    enabled: boolean;
+    supported: boolean;
+  }
 
   export type GetOfferingsResponse = {
     error?: {

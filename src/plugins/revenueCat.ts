@@ -5,6 +5,16 @@ const revenueCat = {
   configure: function (params: RevenueCat.ConfigureParams) {
     return addCommandCallback<RevenueCat.ConfigureResponse>('median://revenueCat/configure', params);
   },
+  attribution: {
+    enableAdServices: function () {
+      return addCommandCallback<RevenueCat.EnableAdServicesResponse>(
+        'median://revenueCat/attribution/enableAdServices'
+      );
+    },
+    getStatus: function () {
+      return addCommandCallback<RevenueCat.GetAttributionStatusResponse>('median://revenueCat/attribution/getStatus');
+    },
+  },
   isInitialized: function () {
     return addCommandCallback<RevenueCat.IsInitializedResponse>('median://revenueCat/isInitialized');
   },
